@@ -24,11 +24,11 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="bg-linear-to-br from-[#0f172a] via-[#1e293b] to-[#020617] text-white min-h-screen py-10">
+    <div className="bg-[#0f172a] text-white min-h-screen py-10">
       <div className="w-11/12 max-w-6xl mx-auto">
 
         {/* grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center pt-10">
 
           {/* Left Content */}
           <div className="max-w-2xl text-center mx-auto">
@@ -83,7 +83,7 @@ export default function Home() {
                 alt="hero Image"
                 width={350}
                 height={350}
-                className="relative object-cover rounded-full shadow-2xl hover:scale-105 duration-300"
+                className="relative object-cover rounded-full shadow-2xl animate-pulse hover:scale-105 duration-300"
                 priority
               />
             </div>
@@ -92,10 +92,7 @@ export default function Home() {
         </div>
       </div>
 
-      {/* Footer */}
-      <p className="text-center mt-16 text-gray-400 tracking-widest">
-        © 2026 SOHAN ISLAM
-      </p>
+
     </div>
   );
 }
