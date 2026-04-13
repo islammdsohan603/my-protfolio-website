@@ -13,7 +13,7 @@ const timeline = [
   },
   {
     icon: <FaCode />,
-    year: '2025',
+    year: '2024',
     title: 'Full-Stack Web Development Course',
     sub: 'Programming Hero — Hands-on real-world projects',
   },
@@ -25,16 +25,32 @@ const timeline = [
   },
 ];
 
+// ✅ whileInView + viewport once: false = বারবার animation
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
-  animate: { opacity: 1, y: 0 },
+  whileInView: { opacity: 1, y: 0 },
+  viewport: { once: false, amount: 0.3 },
   transition: { duration: 0.5, delay },
+});
+
+const slideLeft = (delay = 0) => ({
+  initial: { opacity: 0, x: -30 },
+  whileInView: { opacity: 1, x: 0 },
+  viewport: { once: false, amount: 0.3 },
+  transition: { duration: 0.5, delay },
+});
+
+const scaleIn = (delay = 0) => ({
+  initial: { opacity: 0, scale: 0.8 },
+  whileInView: { opacity: 1, scale: 1 },
+  viewport: { once: false, amount: 0.3 },
+  transition: { duration: 0.4, delay },
 });
 
 const AboutPages = () => {
   return (
     <div className="bg-[#0f172a] text-white min-h-screen py-16">
-      <div className="w-10/12 max-w-4xl mx-auto space-y-16">
+      <div className="w-10/12 max-w-4xl mx-auto space-y-16 pt-6">
         {/* Hero Intro */}
         <div className="text-center space-y-4">
           <motion.p
@@ -46,7 +62,7 @@ const AboutPages = () => {
 
           <motion.h1
             {...fadeUp(0.1)}
-            className="text-4xl md:text-5xl font-extrabold leading-tight"
+            className="fonts text-4xl md:text-5xl font-extrabold leading-tight"
           >
             Passionate About <br />
             <span className="text-orange-400">Building the Web</span>
@@ -66,7 +82,7 @@ const AboutPages = () => {
 
         {/* My Story */}
         <motion.div
-          {...fadeUp(0.3)}
+          {...fadeUp(0.1)}
           className="bg-[#1e293b] rounded-2xl p-8 border border-white/5 space-y-4"
         >
           <h2 className="text-xl font-bold text-orange-400">My Story</h2>
@@ -95,8 +111,8 @@ const AboutPages = () => {
         {/* Timeline */}
         <div className="space-y-5">
           <motion.h2
-            {...fadeUp(0.4)}
-            className="text-xl font-bold text-orange-400"
+            {...fadeUp(0)}
+            className="fonts text-xl font-bold text-orange-400"
           >
             Education & Experience
           </motion.h2>
@@ -104,9 +120,7 @@ const AboutPages = () => {
             {timeline.map((item, i) => (
               <motion.div
                 key={i}
-                initial={{ opacity: 0, x: -30 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: 0.45 + i * 0.1 }}
+                {...slideLeft(i * 0.1)}
                 className="flex gap-5 bg-[#1e293b] rounded-xl p-5 border border-white/5 hover:border-orange-500/30 transition duration-300"
               >
                 <div className="text-orange-400 text-xl mt-1 shrink-0">
@@ -124,7 +138,7 @@ const AboutPages = () => {
 
         {/* CTA */}
         <motion.div
-          {...fadeUp(0.6)}
+          {...fadeUp(0)}
           className="text-center bg-linear-to-r from-orange-500/10 to-orange-600/5 border border-orange-500/20 rounded-2xl p-8 space-y-4"
         >
           <h2 className="text-2xl font-bold">

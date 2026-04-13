@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { FaGithub } from 'react-icons/fa6';
 import { motion, AnimatePresence } from 'framer-motion';
 
-const navItems = ['Home', 'About', 'Projects', 'Contact'];
+const navItems = ['Home', 'About', 'Skills', 'Projects', 'Contact'];
 
 const MenuNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);

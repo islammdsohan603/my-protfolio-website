@@ -7,6 +7,8 @@ import React from 'react';
 const navitems = [
   { path: '/', title: 'Home' },
   { path: '/about', title: 'About' },
+  { path: '/skills', title: 'Skills' },
+
   { path: '/projects', title: 'Projects' },
   { path: '/contact', title: 'Contact' },
 ];
