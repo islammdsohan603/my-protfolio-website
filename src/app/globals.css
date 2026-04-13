@@ -1,6 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Sansita+Swashed:wght@300..900&family=Sirin+Stencil&display=swap');
+
+
 @import "tailwindcss";
 @plugin "daisyui";
 
+.fonts {
+  font-family: "Sansita Swashed", system-ui;
+}
 
 @keyframes fadeUp {
   0% {
