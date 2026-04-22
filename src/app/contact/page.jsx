@@ -99,7 +99,7 @@ export default function ContactPage() {
             className="text-4xl md:text-6xl font-black"
           >
             Let&apos;s{' '}
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">
+            <span className="text-transparent bg-clip-text bg-linear-to-r from-orange-400 to-orange-600">
               Connect
             </span>
           </motion.h2>
@@ -159,7 +159,7 @@ export default function ContactPage() {
             </div>
 
             {/* Availability card */}
-            <div className="bg-gradient-to-r from-orange-500/10 to-transparent border border-orange-500/20 rounded-2xl p-6 space-y-2">
+            <div className="bg-linear-to-r from-orange-500/10 to-transparent border border-orange-500/20 rounded-2xl p-6 space-y-2">
               <div className="flex items-center gap-2">
                 <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
                 <span className="text-sm font-semibold text-green-400">

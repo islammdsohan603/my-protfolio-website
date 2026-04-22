@@ -1,4 +1,3 @@
-// Server Component — no 'use client' needed
 import Link from 'next/link';
 import { FaGithub, FaLinkedin, FaHeart } from 'react-icons/fa6';
 
@@ -45,7 +44,9 @@ export default function Footer() {
               <FaGithub />
             </a>
             <a
-              href="#"
+              href="https://www.linkedin.com/in/sohanislamwebdev/"
+              target="_blank"
+              rel="noreferrer"
               className="w-9 h-9 rounded-xl bg-white/5 hover:bg-orange-500/15 border border-white/5 hover:border-orange-500/30 flex items-center justify-center text-gray-400 hover:text-orange-400 transition-all duration-300"
             >
               <FaLinkedin />
@@ -54,7 +55,7 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="h-px bg-gradient-to-r from-transparent via-white/10 to-transparent" />
+        <div className="h-px bg-linear-to-r from-transparent via-white/10 to-transparent" />
 
         {/* Bottom row */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-3 text-xs">
