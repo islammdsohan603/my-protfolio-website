@@ -14,9 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: 'Sohan Islam Portfolio',
-  description: 'Full Stack Web Developer Portfolio',
-  keywords: ['Next.js', 'React Developer', 'Web Developer'],
+  title: 'MD SOHAN | Frontend Developer Portfolio',
+  description:
+    'Frontend Developer Portfolio built with Next.js, React, Tailwind CSS.',
 };
 
 export default function RootLayout({ children }) {
