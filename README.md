@@ -10,12 +10,7 @@ UI.
 ## 🚀 Live Demo
 
 Add your live website link here:
-
-```bash
-https://your-portfolio-link.com
-```
-
-```
+https://my-nextjs-protfolio-mwh3rlmtx-islammdsohan603s-projects.vercel.app/
 
 ---
 
@@ -49,19 +44,13 @@ https://your-portfolio-link.com
 
 ---
 
-
-
 ## 📸 Screenshots
-
-
 
 ## 👨‍💻 Author
 
 **MD: SOHAN**
 
 Frontend Developer | React Developer | Next.js Developer
-
-
 
 LinkedIn: (https://www.linkedin.com/in/sohanislamwebdev/)
 
@@ -71,5 +60,6 @@ LinkedIn: (https://www.linkedin.com/in/sohanislamwebdev/)
 
 If you like this project, please give it a ⭐ on GitHub.
 
+```
 
 ```
