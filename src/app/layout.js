@@ -14,8 +14,9 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: "sohan portfolio web site",
-  description: "my portfolio web and skills details",
+  title: 'Sohan Islam Portfolio',
+  description: 'Full Stack Web Developer Portfolio',
+  keywords: ['Next.js', 'React Developer', 'Web Developer'],
 };
 
 export default function RootLayout({ children }) {

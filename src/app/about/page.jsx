@@ -25,7 +25,6 @@ const timeline = [
   },
 ];
 
-// ✅ whileInView + viewport once: false = বারবার animation
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 30 },
   whileInView: { opacity: 1, y: 0 },
@@ -49,8 +48,8 @@ const scaleIn = (delay = 0) => ({
 
 const AboutPages = () => {
   return (
-    <div className="bg-[#0f172a] text-white min-h-screen py-16">
-      <div className="w-10/12 max-w-4xl mx-auto space-y-16 pt-6">
+    <div className="bg-[#0f172a] text-white  ">
+      <div className="w-10/12 max-w-4xl mx-auto space-y-16 pt-16 py-8  ">
         {/* Hero Intro */}
         <div className="text-center space-y-4">
           <motion.p

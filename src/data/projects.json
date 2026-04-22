@@ -1,0 +1,82 @@
+[
+  {
+    "id": 1,
+    "title": "Next.js Projects Collection",
+    "description": "A collection of multiple Next.js applications including food app, friends tracker, and task manager demonstrating App Router, API fetching and modern UI.",
+    "image": "/projects/nextjs.png",
+    "tech": ["Next.js", "React", "Tailwind CSS", "API"],
+    "live": "https://nextjs-projects-ten.vercel.app/",
+    "github": "https://github.com/islammdsohan603/NEXTJS-PROJECTS",
+    "featured": true
+  },
+  {
+    "id": 2,
+    "title": "React App Store",
+    "description": "A React-based app store UI where users can browse apps with clean design and responsive layout.",
+    "image": "/projects/appstore.png",
+    "tech": ["React", "JavaScript", "CSS"],
+    "live": "https://react-app-store.vercel.app",
+    "github": "https://github.com/islammdsohan603/react-app-storee",
+    "featured": true
+  },
+  {
+    "id": 3,
+    "title": "Digital Tools Buying Website",
+    "description": "An e-commerce style platform for purchasing digital tools with modern UI and product display system.",
+    "image": "/projects/digital-tools.png",
+    "tech": ["React", "Tailwind CSS", "UI Design"],
+    "live": " https://digital-tools-web.netlify.app/",
+    "github": "https://github.com/islammdsohan603/-Digital-Tools-Buying-Website",
+    "featured": false
+  },
+  {
+    "id": 4,
+    "title": "BPL Dream Team App",
+    "description": "A cricket-based fantasy team builder where users can select players and manage their dream team.",
+    "image": "/projects/bpl.png",
+    "tech": ["React", "JavaScript", "State Management"],
+    "live": " https://bpl-team-projects.netlify.app/",
+    "github": "https://github.com/islammdsohan603/BPL-Dream",
+    "featured": false
+  },
+  {
+    "id": 5,
+    "title": "React Image Slider",
+    "description": "A smooth and responsive image slider component built with React featuring animations and controls.",
+    "image": "/projects/slider.png",
+    "tech": ["React", "CSS", "Animation"],
+    "live": " https://react-image-slider-for-first.netlify.app/",
+    "github": "https://github.com/islammdsohan603/react-images-sliderr",
+    "featured": false
+  },
+  {
+    "id": 6,
+    "title": "GitHub Issues Tracker",
+    "description": "A project to track and manage GitHub issues with clean UI and structured data handling.",
+    "image": "/projects/github-issues.png",
+    "tech": ["React", "API", "GitHub"],
+    "live": "https://islammdsohan603.github.io/GitHub-Issues-Tracker/",
+    "github": "https://github.com/islammdsohan603/GitHub-Issues-Tracker",
+    "featured": true
+  },
+  {
+    "id": 7,
+    "title": "Color Gradient Generator",
+    "description": "A tool to generate beautiful CSS gradients with live preview and copy functionality.",
+    "image": "/projects/gradient.png",
+    "tech": ["JavaScript", "CSS", "UI"],
+    "live": "https://color-gradient.vercel.app",
+    "github": "https://github.com/islammdsohan603/ColorGradient",
+    "featured": false
+  },
+  {
+    "id": 8,
+    "title": "Digital Clock Projects",
+    "description": "A collection of digital clock implementations with real-time updates and modern UI design.",
+    "image": "/projects/clock.png",
+    "tech": ["JavaScript", "HTML", "CSS"],
+    "live": "https://islammdsohan603.github.io/Digital-Clock-Projects/",
+    "github": "https://github.com/islammdsohan603/Digital-Clock-Projects",
+    "featured": false
+  }
+]
