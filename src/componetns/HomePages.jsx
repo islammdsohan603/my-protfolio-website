@@ -75,7 +75,7 @@ export default function HomePages() {
               <h1 className="text-5xl md:text-7xl font-black leading-none tracking-tight">
                 MD: SOHAN
                 <br />
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600">
+                <span className="text-transparent bg-clip-text bg-linear-to-r from-orange-400 to-orange-600">
                   ISLAM
                 </span>
               </h1>
@@ -191,7 +191,7 @@ export default function HomePages() {
               {/* Image */}
               <div className="relative w-72 h-72 md:w-80 md:h-80">
                 <Image
-                  src="/hero.JPG"
+                  src="/protfolio.png"
                   alt="Sohan Islam"
                   fill
                   className="object-cover rounded-full shadow-2xl ring-4 ring-orange-500/20"
