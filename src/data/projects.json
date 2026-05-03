@@ -50,7 +50,7 @@
     "description": "An e-commerce platform for purchasing digital tools with product listings and user-friendly UI.",
     "tech": ["React", "Node.js", "MongoDB", "Express"],
     "github": "https://github.com/islammdsohan603/-Digital-Tools-Buying-Website",
-    "live": "https://i.ibb.co.com/chpVgMF4/Screenshot-2026-03-31-103528.png",
+    "live": "https://react-book-projects.vercel.app/",
     "image": "https://i.ibb.co/chpVgMF4/Screenshot-2026-03-31-103528.png",
     "features": [
       "Product listing",
@@ -65,7 +65,7 @@
     "description": "A React-based application store showcasing apps with clean UI and component-based architecture.",
     "tech": ["React", "CSS", "JavaScript"],
     "github": "https://github.com/islammdsohan603/react-app-store",
-    "live": "https://react-app-store-one.vercel.app/",
+    "live": "https://react-app-store-qqoiwpc1r-islammdsohan603s-projects.vercel.app/",
     "image": "https://i.ibb.co/tMDLWnDL/appstore.png",
     "features": [
       "App listing UI",
