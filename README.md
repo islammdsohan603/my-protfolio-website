@@ -9,8 +9,7 @@ UI.
 
 ## 🚀 Live Demo
 
-Add your live website link here:
-https://my-nextjs-protfolio-63osurko7-islammdsohan603s-projects.vercel.app/
+Add your live website link here: https://my-nextjs-protfolio.vercel.app/
 
 ---
 
