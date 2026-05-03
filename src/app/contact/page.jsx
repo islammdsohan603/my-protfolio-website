@@ -119,7 +119,7 @@ export default function ContactPage() {
                   className="flex items-center gap-4 bg-[#0f1a2e] rounded-xl p-5 border border-white/5"
                 >
                   <div
-                    className="w-10 h-10 rounded-xl flex items-center justify-center text-sm flex-shrink-0"
+                    className="w-10 h-10 rounded-xl flex items-center justify-center text-sm  "
                     style={{
                       backgroundColor: item.color + '20',
                       color: item.color,

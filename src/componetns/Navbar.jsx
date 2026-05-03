@@ -35,12 +35,9 @@ export default function Navbar() {
       <nav className="w-11/12 max-w-6xl mx-auto flex items-center justify-between py-4">
         {/* Logo */}
         <Link href="/" className="group flex items-center gap-1">
-          <span className="text-xl md:text-2xl font-black tracking-tight text-white group-hover:text-orange-400 transition-colors duration-300">
-            SOHAN
-          </span>
-          <span className="text-xl md:text-2xl font-black text-orange-500">
-            .Dev
-          </span>
+          <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold text-xl shadow-lg">
+            S
+          </div>
         </Link>
 
         {/* Desktop Nav Links */}

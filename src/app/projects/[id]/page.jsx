@@ -9,11 +9,6 @@ import { motion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { useParams, notFound } from 'next/navigation';
 
-// ─── If you are using this as a SERVER component (app router default),
-// remove 'use client', useParams, useState, useEffect and restore the
-// async function signature + params prop shown in the commented block below.
-// ─────────────────────────────────────────────────────────────────────────
-
 const fadeUp = (delay = 0) => ({
   initial: { opacity: 0, y: 28 },
   animate: { opacity: 1, y: 0 },
@@ -26,32 +21,13 @@ const slideLeft = (delay = 0) => ({
   transition: { duration: 0.45, delay, ease: 'easeOut' },
 });
 
-// ─── SERVER COMPONENT VERSION (recommended for Next.js 14 app router) ───
-// Remove the 'use client' directive at the top and replace the component with:
-//
-// import projects from '@/data/projects.json';
-// import { notFound } from 'next/navigation';
-//
-// export async function generateStaticParams() {
-//   return projects.map(p => ({ id: String(p.id) }));
-// }
-//
-// export default async function ProjectDetails({ params }) {
-//   const { id } = await params;
-//   const project = projects.find(p => String(p.id) === id);
-//   if (!project) return notFound();
-//   ... render JSX below
-// }
-// ─────────────────────────────────────────────────────────────────────────
-
 import projectsData from '@/data/projects.json';
 
 export default function ProjectDetails() {
   const params = useParams();
   const project = projectsData.find(p => String(p.id) === params.id);
 
-  if (!project) return null; // or redirect to 404
-
+  if (!project) return null;
   const { title, description, tech, github, live, featured } = project;
 
   return (

@@ -1,82 +1,92 @@
 [
   {
     "id": 1,
-    "title": "Next.js Projects Collection",
-    "description": "A collection of multiple Next.js applications including food app, friends tracker, and task manager demonstrating App Router, API fetching and modern UI.",
-    "image": "/projects/nextjs.png",
-    "tech": ["Next.js", "React", "Tailwind CSS", "API"],
-    "live": "https://nextjs-projects-ten.vercel.app/",
-    "github": "https://github.com/islammdsohan603/NEXTJS-PROJECTS",
-    "featured": true
+    "title": "QurbaniHat – Livestock Booking Platform",
+    "description": "A modern livestock marketplace where users can explore animals for Qurbani and book them after authentication. Includes filtering, booking system, and responsive UI.",
+    "tech": ["Next.js", "MongoDB", "Authentication", "Tailwind CSS"],
+    "github": "https://github.com/islammdsohan603/QurbaniHat--Booking-Platform",
+    "live": "https://my-app-qurbaniweb.vercel.app/",
+    "image": "https://i.ibb.co/HL1v316Q/Screenshot-2026-05-03-173319.png",
+    "features": [
+      "User authentication system",
+      "Animal listing with details",
+      "Booking system",
+      "Responsive UI design"
+    ]
   },
   {
     "id": 2,
-    "title": "React App Store",
-    "description": "A React-based app store UI where users can browse apps with clean design and responsive layout.",
-    "image": "/projects/appstore.png",
-    "tech": ["React", "JavaScript", "CSS"],
-    "live": "https://react-app-store.vercel.app",
-    "github": "https://github.com/islammdsohan603/react-app-storee",
-    "featured": true
+    "title": "News Website with Next.js",
+    "description": "A dynamic news platform using API-based data fetching with category filtering and detailed news pages.",
+    "tech": ["Next.js", "API", "Server Components", "Tailwind CSS"],
+    "github": "https://github.com/islammdsohan603/News-web-site-with-nextJs",
+    "live": "https://news-web-site-with-next-8fb09iy98-islammdsohan603s-projects.vercel.app/category/01",
+    "image": "https://i.ibb.co/qLsYkrtq/Screenshot-2026-05-03-220455.png",
+    "features": [
+      "Category-based news filtering",
+      "Dynamic routing",
+      "Server-side data fetching",
+      "News details page"
+    ]
   },
   {
     "id": 3,
-    "title": "Digital Tools Buying Website",
-    "description": "An e-commerce style platform for purchasing digital tools with modern UI and product display system.",
-    "image": "/projects/digital-tools.png",
-    "tech": ["React", "Tailwind CSS", "UI Design"],
-    "live": " https://digital-tools-web.netlify.app/",
-    "github": "https://github.com/islammdsohan603/-Digital-Tools-Buying-Website",
-    "featured": false
+    "title": "Next.js Projects Collection",
+    "description": "A collection of multiple Next.js mini projects demonstrating routing, components, and modern React features.",
+    "tech": ["Next.js", "React", "JavaScript"],
+    "github": "https://github.com/islammdsohan603/NEXTJS-PROJECTS",
+    "live": "https://nextjs-projects-3jjx.vercel.app/",
+    "image": "https://i.ibb.co/ZR6KmDm9/Screenshot-2026-05-03-220341.png",
+    "features": [
+      "Multiple mini projects",
+      "App Router usage",
+      "Reusable components",
+      "Modern React patterns"
+    ]
   },
   {
     "id": 4,
-    "title": "BPL Dream Team App",
-    "description": "A cricket-based fantasy team builder where users can select players and manage their dream team.",
-    "image": "/projects/bpl.png",
-    "tech": ["React", "JavaScript", "State Management"],
-    "live": " https://bpl-team-projects.netlify.app/",
-    "github": "https://github.com/islammdsohan603/BPL-Dream",
-    "featured": false
+    "title": "Digital Tools Buying Website",
+    "description": "An e-commerce platform for purchasing digital tools with product listings and user-friendly UI.",
+    "tech": ["React", "Node.js", "MongoDB", "Express"],
+    "github": "https://github.com/islammdsohan603/-Digital-Tools-Buying-Website",
+    "live": "https://i.ibb.co.com/chpVgMF4/Screenshot-2026-03-31-103528.png",
+    "image": "https://i.ibb.co/chpVgMF4/Screenshot-2026-03-31-103528.png",
+    "features": [
+      "Product listing",
+      "Add to cart functionality",
+      "Responsive UI",
+      "Backend API integration"
+    ]
   },
   {
     "id": 5,
-    "title": "React Image Slider",
-    "description": "A smooth and responsive image slider component built with React featuring animations and controls.",
-    "image": "/projects/slider.png",
-    "tech": ["React", "CSS", "Animation"],
-    "live": " https://react-image-slider-for-first.netlify.app/",
-    "github": "https://github.com/islammdsohan603/react-images-sliderr",
-    "featured": false
+    "title": "React App Store",
+    "description": "A React-based application store showcasing apps with clean UI and component-based architecture.",
+    "tech": ["React", "CSS", "JavaScript"],
+    "github": "https://github.com/islammdsohan603/react-app-store",
+    "live": "https://react-app-store-one.vercel.app/",
+    "image": "https://i.ibb.co/tMDLWnDL/appstore.png",
+    "features": [
+      "App listing UI",
+      "Reusable components",
+      "Clean design",
+      "Responsive layout"
+    ]
   },
   {
     "id": 6,
-    "title": "GitHub Issues Tracker",
-    "description": "A project to track and manage GitHub issues with clean UI and structured data handling.",
-    "image": "/projects/github-issues.png",
-    "tech": ["React", "API", "GitHub"],
-    "live": "https://islammdsohan603.github.io/GitHub-Issues-Tracker/",
-    "github": "https://github.com/islammdsohan603/GitHub-Issues-Tracker",
-    "featured": true
-  },
-  {
-    "id": 7,
-    "title": "Color Gradient Generator",
-    "description": "A tool to generate beautiful CSS gradients with live preview and copy functionality.",
-    "image": "/projects/gradient.png",
-    "tech": ["JavaScript", "CSS", "UI"],
-    "live": "https://color-gradient.vercel.app",
-    "github": "https://github.com/islammdsohan603/ColorGradient",
-    "featured": false
-  },
-  {
-    "id": 8,
-    "title": "Digital Clock Projects",
-    "description": "A collection of digital clock implementations with real-time updates and modern UI design.",
-    "image": "/projects/clock.png",
-    "tech": ["JavaScript", "HTML", "CSS"],
-    "live": "https://islammdsohan603.github.io/Digital-Clock-Projects/",
-    "github": "https://github.com/islammdsohan603/Digital-Clock-Projects",
-    "featured": false
+    "title": "React Book Projects",
+    "description": "A book management application where users can browse and manage book collections.",
+    "tech": ["React", "API", "JavaScript"],
+    "github": "https://github.com/islammdsohan603/react-book-projects",
+    "live": "https://react-book-projects.vercel.app/",
+    "image": "https://i.ibb.co/rGhHz1Wq/Screenshot-2026-05-03-221329.png",
+    "features": [
+      "Book listing",
+      "Search functionality",
+      "API integration",
+      "Responsive design"
+    ]
   }
 ]

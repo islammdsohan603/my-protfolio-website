@@ -2,9 +2,11 @@
 import Link from 'next/link';
 import { FaGithub, FaArrowUpRightFromSquare, FaStar } from 'react-icons/fa6';
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 
 const ProjectsCards = ({ project, index = 0 }) => {
-  const { id, title, description, tech, github, live, featured } = project;
+  const { id, title, description, tech, github, live, featured, image } =
+    project;
 
   return (
     <motion.div
@@ -32,6 +34,14 @@ const ProjectsCards = ({ project, index = 0 }) => {
       )}
 
       <div className="p-6 flex flex-col flex-1 space-y-4">
+        <div className="relative w-full h-48 rounded-xl overflow-hidden">
+          <Image
+            src={image}
+            alt={title}
+            fill
+            className="object-cover group-hover:scale-110 transition duration-500"
+          />
+        </div>
         {/* Title */}
         <h3 className="text-lg font-bold text-white group-hover:text-orange-400 transition-colors duration-300 pr-16">
           {title}
