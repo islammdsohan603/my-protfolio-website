@@ -67,16 +67,6 @@ export default function Navbar() {
           })}
         </div>
 
-        {/* Desktop GitHub Button */}
-        <Link
-          href="https://github.com/islammdsohan603"
-          target="_blank"
-          className="hidden md:flex items-center gap-2 px-4 py-2 bg-white/5 hover:bg-orange-500/10 border border-white/10 hover:border-orange-500/30 rounded-xl text-sm font-medium text-gray-300 hover:text-orange-400 transition-all duration-300"
-        >
-          <FaGithub className="text-base" />
-          GitHub
-        </Link>
-
         {/* Mobile Menu Toggle */}
         <button
           onClick={() => setMenuOpen(!menuOpen)}

@@ -16,8 +16,10 @@ export default function Footer() {
         {/* Top row */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-6">
           {/* Brand */}
-          <Link href="/" className="text-xl font-black text-white">
-            SOHAN<span className="text-orange-500">.Dev</span>
+          <Link href="/" className="group flex items-center gap-1">
+            <div className="w-10 h-10 flex items-center justify-center rounded-xl bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold text-xl shadow-lg">
+              S
+            </div>
           </Link>
 
           {/* Nav links */}
