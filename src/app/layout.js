@@ -2,6 +2,7 @@ import { Outfit, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import SmoothScroll from "@/providers/SmoothScroll";
+import CursorGlow from "@/components/ui/CursorGlow";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -75,6 +76,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${outfit.variable} ${inter.variable}`}>
       <body className="antialiased font-inter">
         <SmoothScroll>
+          <CursorGlow />
           <Navbar />
           {children}
         </SmoothScroll>
