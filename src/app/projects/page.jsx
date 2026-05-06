@@ -2,7 +2,7 @@
 
 import { motion } from 'framer-motion';
 import projects from '@/data/projects.json';
-import ProjectsCards from '@/componetns/ProjectsCards';
+import ProjectsCards from '@/components/ProjectsCards';
 
 export default function ProjectsPages() {
   return (
