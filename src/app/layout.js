@@ -15,15 +15,37 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata = {
-  title: 'MD SOHAN | Frontend Developer Portfolio',
+  title: {
+    default: "Sohan Islam | Frontend Developer",
+    template: "%s | Sohan Islam",
+  },
   description:
-    'Frontend Developer Portfolio built with Next.js, React, Tailwind CSS.',
+    "Sohan Islam is a Frontend Developer from Bangladesh specializing in React.js, Next.js, and modern web applications. View portfolio, projects, and contact details.",
+  keywords: [
+    "Sohan Islam",
+    "Sohan Islam Developer",
+    "Frontend Developer Bangladesh",
+    "React Developer Bangladesh",
+    "Next.js Developer",
+    "Sohan Portfolio",
+  ],
+  authors: [{ name: "Sohan Islam" }],
+  creator: "Sohan Islam",
+  openGraph: {
+    title: "Sohan Islam | Frontend Developer",
+    description:
+      "Portfolio of Sohan Islam - React & Next.js Developer",
+    url: "https://your-domain.com",
+    siteName: "Sohan Portfolio",
+    locale: "en_US",
+    type: "website",
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body>
+      <body className={`${geistSans.variable} ${geistMono.variable}`}>
         <SmoothScroll>
           <Navbar />
           {children}
