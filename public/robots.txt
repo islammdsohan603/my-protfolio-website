@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://my-nextjs-protfolio.vercel.app/sitemap.xml
