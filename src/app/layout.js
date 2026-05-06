@@ -1,4 +1,3 @@
-// src/app/layout.js
 import { Outfit, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
@@ -17,33 +16,10 @@ const inter = Inter({
 });
 
 export const metadata = {
-<<<<<<< HEAD
   title: {
-    default: "Sohan Islam | Frontend Developer",
+    default: "MD SOHAN | Sohan Islam Portfolio | Frontend Developer Bangladesh",
     template: "%s | Sohan Islam",
   },
-  description:
-    "Sohan Islam is a Frontend Developer from Bangladesh specializing in React.js, Next.js, and modern web applications. View portfolio, projects, and contact details.",
-  keywords: [
-    "Sohan Islam",
-    "Sohan Islam Developer",
-    "Frontend Developer Bangladesh",
-    "React Developer Bangladesh",
-    "Next.js Developer",
-    "Sohan Portfolio",
-  ],
-  authors: [{ name: "Sohan Islam" }],
-  creator: "Sohan Islam",
-  openGraph: {
-    title: "Sohan Islam | Frontend Developer",
-    description:
-      "Portfolio of Sohan Islam - React & Next.js Developer",
-    url: "https://your-domain.com",
-    siteName: "Sohan Portfolio",
-    locale: "en_US",
-    type: "website",
-=======
-  title: "MD SOHAN | Sohan Islam Portfolio | Frontend Developer Bangladesh",
   description:
     "Professional Portfolio of MD SOHAN (Sohan Islam), a skilled Frontend Developer from Bangladesh specializing in Next.js, React, and Tailwind CSS. Explore my projects and skills.",
   keywords: [
@@ -91,19 +67,13 @@ export const metadata = {
       "max-image-preview": "large",
       "max-snippet": -1,
     },
->>>>>>> 8521c852cde4491ca7276e516003b3e38a3a8bc5
   },
 };
 
 export default function RootLayout({ children }) {
   return (
-<<<<<<< HEAD
-    <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-=======
     <html lang="en" className={`${outfit.variable} ${inter.variable}`}>
       <body className="antialiased font-inter">
->>>>>>> 8521c852cde4491ca7276e516003b3e38a3a8bc5
         <SmoothScroll>
           <Navbar />
           {children}
