@@ -88,6 +88,7 @@ const AboutPages = () => {
                   src="/hero.JPG"
                   alt="Sohan Islam"
                   fill
+                  sizes='(max-width: 768px) 100vw, 50vw'
                   className="object-cover object-top hover:scale-105 transition-transform duration-700"
                   priority
                 />

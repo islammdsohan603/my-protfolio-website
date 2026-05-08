@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import SmoothScroll from "@/providers/SmoothScroll";
 import CursorGlow from "@/components/ui/CursorGlow";
 
+
 const outfit = Outfit({
   variable: "--font-outfit",
   subsets: ["latin"],
@@ -79,6 +80,7 @@ export default function RootLayout({ children }) {
           <CursorGlow />
           <Navbar />
           {children}
+
         </SmoothScroll>
       </body>
     </html>

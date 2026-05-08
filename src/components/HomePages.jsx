@@ -256,7 +256,7 @@ export default function HomePages() {
               {/* ── Photo ── */}
               <div className="relative w-64 h-64 md:w-72 md:h-72 lg:w-[420px] lg:h-[420px]">
                 <Image
-                  src="/portfolio.png"
+                  src="/sohanimage.png"
                   alt="Sohan Islam — Web Developer"
                   fill
                   className="object-cover object-top rounded-full shadow-2xl ring-4 ring-orange-500/25 hover:scale-105 transition-transform duration-500"
