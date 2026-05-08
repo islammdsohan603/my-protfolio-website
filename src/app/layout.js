@@ -4,7 +4,7 @@ import Navbar from "@/components/Navbar";
 import SmoothScroll from "@/providers/SmoothScroll";
 import CursorGlow from "@/components/ui/CursorGlow";
 import SplashScreen from "@/components/SplashScreen";
-
+import Script from "next/script";
 
 const outfit = Outfit({
   variable: "--font-outfit",
@@ -77,6 +77,21 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${outfit.variable} ${inter.variable}`}>
       <body className="antialiased font-inter">
+        <Script
+          strategy="afterInteractive"
+          src={`https://www.googletagmanager.com/gtag/js?id=G-SJKJTN0MP0`}
+        />
+        <Script
+          id="google-analytics"
+          strategy="afterInteractive"
+        >
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-SJKJTN0MP0');
+          `}
+        </Script>
         <SmoothScroll>
           <SplashScreen />
           <CursorGlow />
