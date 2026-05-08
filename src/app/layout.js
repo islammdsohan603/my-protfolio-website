@@ -3,6 +3,7 @@ import "./globals.css";
 import Navbar from "@/components/Navbar";
 import SmoothScroll from "@/providers/SmoothScroll";
 import CursorGlow from "@/components/ui/CursorGlow";
+import SplashScreen from "@/components/SplashScreen";
 
 
 const outfit = Outfit({
@@ -77,6 +78,7 @@ export default function RootLayout({ children }) {
     <html lang="en" className={`${outfit.variable} ${inter.variable}`}>
       <body className="antialiased font-inter">
         <SmoothScroll>
+          <SplashScreen />
           <CursorGlow />
           <Navbar />
           {children}
