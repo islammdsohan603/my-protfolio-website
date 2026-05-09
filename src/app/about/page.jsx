@@ -140,7 +140,7 @@ const AboutPages = () => {
   return (
     <section
       ref={containerRef}
-      className="relative bg-[#050810] text-white overflow-hidden"
+      className="relative pt-20 bg-[#050810] text-white overflow-hidden"
       style={{ fontFamily: "'DM Sans', sans-serif" }}
     >
       {/* Google Font */}
@@ -364,9 +364,7 @@ const AboutPages = () => {
               </p>
               <p>
                 I completed Level 1 of Full-Stack Web Development at{' '}
-                <span className="text-orange-400 font-semibold">Programming Hero</span> and
-                I&apos;m actively building modern, fast, and user-friendly digital products
-                with clean code.
+                <span className="text-orange-400 font-semibold">Programming Hero</span> and i am a fast learner and hard worker. I am always eager to learn new technologies and improve my skills.
               </p>
             </div>
 
