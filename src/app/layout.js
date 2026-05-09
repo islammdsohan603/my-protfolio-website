@@ -26,13 +26,30 @@ export const metadata = {
   description:
     "Professional Portfolio of MD SOHAN (Sohan Islam), a skilled Frontend Developer from Bangladesh specializing in Next.js, React, and Tailwind CSS. Explore my projects and skills.",
   keywords: [
+    "Sohan Portfolio",
     "Sohan Islam Portfolio",
     "Frontend Developer Bangladesh",
     "MD SOHAN",
+    "Sohan Islam",
     "React Developer Bangladesh",
     "Next.js Developer",
     "Web Developer Portfolio",
     "Sohan Islam Web Dev",
+    "Frontend Developer",
+    "Web Developer",
+    "Software Engineer",
+    "React Developer",
+    "JavaScript Developer",
+    "Top Developer in Bangladesh",
+    "Hire Frontend Developer",
+    "UI/UX Developer",
+    "Web Designer Bangladesh",
+    "Web Developer in Dhaka",
+    "Frontend Engineer",
+    "Developer",
+    "Programmer",
+    "Coder",
+    "Website Developer"
   ],
   authors: [{ name: "MD SOHAN", url: "https://my-nextjs-protfolio.vercel.app/" }],
   creator: "MD SOHAN",
@@ -73,10 +90,35 @@ export const metadata = {
   },
 };
 
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "MD SOHAN",
+  "alternateName": "Sohan Islam",
+  "url": "https://my-nextjs-protfolio.vercel.app/",
+  "image": "https://my-nextjs-protfolio.vercel.app/portfolio.png",
+  "jobTitle": "Frontend Developer",
+  "description": "Professional Frontend Developer from Bangladesh specializing in Next.js, React, and Tailwind CSS.",
+  "worksFor": {
+    "@type": "Organization",
+    "name": "Freelance"
+  },
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Dhaka",
+    "addressCountry": "Bangladesh"
+  }
+};
+
 export default function RootLayout({ children }) {
   return (
     <html lang="en" className={`${outfit.variable} ${inter.variable}`}>
       <body className="antialiased font-inter">
+        <Script
+          id="json-ld"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <Script
           strategy="afterInteractive"
           src={`https://www.googletagmanager.com/gtag/js?id=G-SJKJTN0MP0`}
