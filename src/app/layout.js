@@ -2,7 +2,7 @@ import { Outfit, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import SmoothScroll from "@/providers/SmoothScroll";
-import CursorGlow from "@/components/ui/CursorGlow";
+
 import SplashScreen from "@/components/SplashScreen";
 import Script from "next/script";
 
@@ -136,7 +136,7 @@ export default function RootLayout({ children }) {
         </Script>
         <SmoothScroll>
           <SplashScreen />
-          <CursorGlow />
+
           <Navbar />
           {children}
 

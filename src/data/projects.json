@@ -5,7 +5,7 @@
     "description": "A modern livestock marketplace where users can explore animals for Qurbani and book them after authentication. Includes filtering, booking system, and responsive UI.",
     "tech": ["Next.js", "MongoDB", "Authentication", "Tailwind CSS"],
     "github": "https://github.com/islammdsohan603/QurbaniHat--Booking-Platform",
-    "live": "https://my-app-qurbaniweb.vercel.app/",
+    "live": " https://qurbani-hat-booking-platform.vercel.app",
     "image": "https://i.ibb.co/HL1v316Q/Screenshot-2026-05-03-173319.png",
     "features": [
       "User authentication system",
