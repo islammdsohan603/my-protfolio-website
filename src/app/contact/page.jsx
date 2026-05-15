@@ -1,4 +1,5 @@
 'use client';
+
 import { useState } from 'react';
 import { motion } from 'framer-motion';
 import {
@@ -8,14 +9,31 @@ import {
   FaLinkedin,
   FaPaperPlane,
   FaCheck,
+  FaPhone,
+  FaClock,
+  FaBolt,
+  FaShieldHalved,
+  FaArrowRight,
 } from 'react-icons/fa6';
+
+const CONTACT_EMAIL = 'islammdsohan603@gmail.com';
+const CONTACT_PHONE = '01643223840';
+const CONTACT_PHONE_LINK = '+8801643223840';
 
 const contactInfo = [
   {
     icon: <FaEnvelope />,
     label: 'Email',
-    value: 'islammdsohan603@gmail.com',
+    value: CONTACT_EMAIL,
+    href: `mailto:${CONTACT_EMAIL}`,
     color: '#f97316',
+  },
+  {
+    icon: <FaPhone />,
+    label: 'Phone',
+    value: CONTACT_PHONE,
+    href: `tel:${CONTACT_PHONE_LINK}`,
+    color: '#22c55e',
   },
   {
     icon: <FaLocationDot />,
@@ -38,235 +56,414 @@ const socials = [
   },
 ];
 
+const proofCards = [
+  {
+    icon: <FaBolt />,
+    title: 'Fast execution',
+    text: 'Clean React and Next.js builds with sharp UI details.',
+  },
+  {
+    icon: <FaShieldHalved />,
+    title: 'Reliable handoff',
+    text: 'Forms, validation, deployment-ready code, and clear structure.',
+  },
+  {
+    icon: <FaClock />,
+    title: 'Quick response',
+    text: 'Best for junior roles, internships, and freelance websites.',
+  },
+];
+
+const projectTypes = [
+  'Company website',
+  'Portfolio / personal brand',
+  'Landing page',
+  'React / Next.js app',
+  'Bug fix or redesign',
+];
+
 const fadeUp = (delay = 0) => ({
-  initial: { opacity: 0, y: 24 },
+  initial: { opacity: 0, y: 28 },
   whileInView: { opacity: 1, y: 0 },
-  viewport: { once: false, amount: 0.2 },
-  transition: { duration: 0.5, delay },
+  viewport: { once: false, amount: 0.16 },
+  transition: { duration: 0.55, delay, ease: [0.22, 1, 0.36, 1] },
 });
 
+const initialForm = {
+  name: '',
+  email: '',
+  phone: '',
+  subject: '',
+  projectType: 'Company website',
+  message: '',
+  website: '',
+};
+
 export default function ContactPage() {
-  const [form, setForm] = useState({
-    name: '',
-    email: '',
-    subject: '',
-    message: '',
-  });
-  const [status, setStatus] = useState('idle'); // idle | loading | success | error
+  const [form, setForm] = useState(initialForm);
+  const [status, setStatus] = useState('idle');
+  const [notice, setNotice] = useState('');
 
-  const handleChange = e =>
-    setForm({ ...form, [e.target.name]: e.target.value });
+  const handleChange = event => {
+    const { name, value } = event.target;
+    setForm(current => ({ ...current, [name]: value }));
+  };
 
-  const handleSubmit = async e => {
-    e.preventDefault();
+  const handleSubmit = async event => {
+    event.preventDefault();
     setStatus('loading');
+    setNotice('');
+
     try {
-      const res = await fetch('/api/contact', {
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form),
       });
-      if (res.ok) {
+      const result = await response.json().catch(() => ({}));
+
+      if (response.ok) {
         setStatus('success');
-        setForm({ name: '', email: '', subject: '', message: '' });
-        setTimeout(() => setStatus('idle'), 4000);
+        setNotice(result.message || 'Message sent successfully. I will reply soon.');
+        setForm(initialForm);
+        setTimeout(() => {
+          setStatus('idle');
+          setNotice('');
+        }, 5000);
       } else {
         setStatus('error');
+        setNotice(result.message || 'Something went wrong. Please try again.');
       }
     } catch {
       setStatus('error');
+      setNotice('Network error. Please check your connection and try again.');
     }
   };
 
   return (
     <section
       id="contact"
-      className="bg-[#060c18] text-white py-10 md:py-24 relative overflow-hidden"
+      className="relative overflow-hidden bg-[#040710] py-16 text-white md:py-28"
+      style={{ fontFamily: "'DM Sans', sans-serif" }}
     >
-      <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-[500px] h-[300px] bg-orange-500/5 rounded-full blur-3xl pointer-events-none" />
+      <style>{`
+        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Syne:wght@700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
+        .font-display { font-family: 'Syne', sans-serif; }
+        .font-mono-code { font-family: 'JetBrains Mono', monospace; }
+        .contact-grid {
+          background-image:
+            linear-gradient(rgba(249,115,22,0.04) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(249,115,22,0.04) 1px, transparent 1px);
+          background-size: 52px 52px;
+        }
+        .contact-shine {
+          background: linear-gradient(90deg, #f97316 0%, #fbbf24 35%, #ffffff 50%, #fbbf24 65%, #f97316 100%);
+          background-size: 220% auto;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+          animation: contactShine 5s linear infinite;
+        }
+        @keyframes contactShine {
+          0% { background-position: -220% center; }
+          100% { background-position: 220% center; }
+        }
+      `}</style>
 
-      <div className="relative z-10 w-11/12 max-w-5xl mx-auto space-y-14">
-        {/* Header */}
-        <div className="text-center space-y-3">
-          <motion.p
-            {...fadeUp(0)}
-            className="text-orange-500 font-mono text-sm tracking-[0.3em] uppercase"
-          >
-            Get In Touch
-          </motion.p>
-          <motion.h2
-            {...fadeUp(0.1)}
-            className="text-4xl md:text-6xl font-black"
-          >
-            Let&apos;s{' '}
-            <span className="text-transparent bg-clip-text bg-linear-to-r from-orange-400 to-orange-600">
-              Connect
-            </span>
-          </motion.h2>
-          <motion.p {...fadeUp(0.2)} className="text-gray-400 max-w-xl mx-auto">
-            Have a project in mind or want to collaborate? I&apos;d love to hear
-            from you.
-          </motion.p>
-        </div>
+      <div className="absolute inset-0 contact-grid opacity-70" />
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-24 left-1/2 h-[420px] w-[720px] -translate-x-1/2 rounded-full bg-orange-500/10 blur-[130px]" />
+        <div className="absolute bottom-0 left-0 h-[360px] w-[360px] rounded-full bg-cyan-500/7 blur-[100px]" />
+        <div className="absolute right-0 top-1/3 h-[300px] w-[300px] rounded-full bg-amber-400/7 blur-[100px]" />
+      </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          {/* LEFT: Info */}
-          <motion.div {...fadeUp(0.1)} className="space-y-8">
-            <div className="space-y-4">
-              {contactInfo.map((item, i) => (
-                <div
-                  key={i}
-                  className="flex items-center gap-4 bg-[#0f1a2e] rounded-xl p-5 border border-white/5"
-                >
-                  <div
-                    className="w-10 h-10 rounded-xl flex items-center justify-center text-sm  "
-                    style={{
-                      backgroundColor: item.color + '20',
-                      color: item.color,
-                    }}
-                  >
-                    {item.icon}
-                  </div>
-                  <div>
-                    <p className="text-xs text-gray-500 mb-0.5">{item.label}</p>
-                    <p className="text-sm font-medium text-gray-200">
-                      {item.value}
-                    </p>
-                  </div>
-                </div>
-              ))}
+      <div className="relative z-10 mx-auto w-11/12 max-w-6xl space-y-14">
+        <div className="grid items-end gap-8 lg:grid-cols-[1fr_0.8fr]">
+          <motion.div {...fadeUp(0)} className="space-y-5">
+            <div className="inline-flex items-center gap-2 rounded-full border border-orange-500/20 bg-orange-500/5 px-4 py-2">
+              <span className="h-2 w-2 rounded-full bg-green-400 shadow-[0_0_18px_rgba(74,222,128,0.8)]" />
+              <span className="font-mono-code text-[11px] uppercase tracking-[0.28em] text-orange-300">
+                Ready for serious opportunities
+              </span>
             </div>
 
-            {/* Social Links */}
-            <div>
-              <p className="text-xs text-gray-600 uppercase tracking-widest mb-4">
-                Find me on
-              </p>
-              <div className="flex gap-3">
-                {socials.map((s, i) => (
-                  <a
-                    key={i}
-                    href={s.href}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center gap-2 px-4 py-2.5 bg-[#0f1a2e] border border-white/5 hover:border-orange-500/30 hover:text-orange-400 text-gray-400 rounded-xl text-sm font-medium transition-all duration-300"
-                  >
-                    {s.icon}
-                    {s.label}
-                  </a>
-                ))}
-              </div>
-            </div>
-
-            {/* Availability card */}
-            <div className="bg-linear-to-r from-orange-500/10 to-transparent border border-orange-500/20 rounded-2xl p-6 space-y-2">
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
-                <span className="text-sm font-semibold text-green-400">
-                  Available for hire
-                </span>
-              </div>
-              <p className="text-gray-400 text-sm">
-                Open to junior developer positions, internships, and freelance
-                projects.
+            <div className="space-y-3">
+              <h2 className="font-display text-5xl font-black leading-[0.95] md:text-7xl">
+                Let&apos;s build your{' '}
+                <span className="contact-shine block sm:inline">next web win</span>
+              </h2>
+              <p className="max-w-2xl text-base leading-8 text-slate-400">
+                If you are hiring a junior developer, need a polished website, or want a
+                React/Next.js interface that feels premium, send the details here. The message
+                goes straight to my Gmail inbox.
               </p>
             </div>
           </motion.div>
 
-          {/* RIGHT: Form */}
-          <motion.div {...fadeUp(0.2)}>
+          <motion.div
+            {...fadeUp(0.12)}
+            className="rounded-3xl border border-white/8 bg-white/[0.03] p-5 backdrop-blur-xl"
+          >
+            <div className="grid grid-cols-3 gap-3 text-center">
+              {[
+                { value: '24h', label: 'Reply goal' },
+                { value: '5+', label: 'Core stack' },
+                { value: '100%', label: 'Focused' },
+              ].map(item => (
+                <div key={item.label} className="rounded-2xl border border-white/6 bg-[#0b1425] p-4">
+                  <p className="font-display text-2xl font-black text-orange-400">{item.value}</p>
+                  <p className="font-mono-code text-[10px] text-slate-500">{item.label}</p>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+
+        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+          <motion.div {...fadeUp(0.1)} className="space-y-6">
+            <div className="rounded-3xl border border-white/8 bg-[#0b1425]/90 p-6 shadow-2xl shadow-black/30">
+              <p className="font-mono-code mb-5 text-[11px] uppercase tracking-[0.28em] text-slate-500">
+                Direct channels
+              </p>
+              <div className="space-y-3">
+                {contactInfo.map(item => (
+                  <div
+                    key={item.label}
+                    className="group rounded-2xl border border-white/7 bg-white/[0.03] p-4 transition-all duration-300 hover:-translate-y-1 hover:border-orange-500/25 hover:bg-orange-500/[0.04]"
+                  >
+                    <div className="flex items-center gap-4">
+                      <div
+                        className="flex h-12 w-12 items-center justify-center rounded-2xl text-base"
+                        style={{
+                          backgroundColor: `${item.color}18`,
+                          color: item.color,
+                          boxShadow: `0 0 30px ${item.color}12`,
+                        }}
+                      >
+                        {item.icon}
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <p className="text-xs uppercase tracking-widest text-slate-600">{item.label}</p>
+                        {item.href ? (
+                          <a
+                            href={item.href}
+                            className="break-all text-sm font-semibold text-slate-200 transition-colors group-hover:text-orange-300"
+                          >
+                            {item.value}
+                          </a>
+                        ) : (
+                          <p className="text-sm font-semibold text-slate-200">{item.value}</p>
+                        )}
+                      </div>
+                      {item.href && (
+                        <FaArrowRight className="text-xs text-slate-600 transition group-hover:translate-x-1 group-hover:text-orange-400" />
+                      )}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            <div className="grid gap-3 sm:grid-cols-3 lg:grid-cols-1">
+              {proofCards.map((card, index) => (
+                <motion.div
+                  key={card.title}
+                  {...fadeUp(0.12 + index * 0.05)}
+                  className="rounded-2xl border border-white/7 bg-white/[0.03] p-5"
+                >
+                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-orange-500/10 text-orange-400">
+                    {card.icon}
+                  </div>
+                  <h3 className="font-display text-lg font-bold text-white">{card.title}</h3>
+                  <p className="mt-1 text-sm leading-6 text-slate-500">{card.text}</p>
+                </motion.div>
+              ))}
+            </div>
+
+            <div>
+              <p className="mb-3 font-mono-code text-[11px] uppercase tracking-[0.28em] text-slate-600">
+                Find me on
+              </p>
+              <div className="flex flex-wrap gap-3">
+                {socials.map(item => (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="inline-flex items-center gap-2 rounded-xl border border-white/8 bg-white/[0.03] px-4 py-3 text-sm font-semibold text-slate-400 transition-all duration-300 hover:-translate-y-1 hover:border-orange-500/30 hover:bg-orange-500/10 hover:text-orange-300"
+                  >
+                    {item.icon}
+                    {item.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </motion.div>
+
+          <motion.div {...fadeUp(0.18)}>
             <form
               onSubmit={handleSubmit}
-              className="bg-[#0f1a2e] rounded-2xl border border-white/5 p-8 space-y-5"
+              className="relative overflow-hidden rounded-[2rem] border border-orange-500/18 bg-[#0c1526] p-5 shadow-2xl shadow-orange-950/20 md:p-8"
             >
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                <div className="space-y-1.5">
-                  <label className="text-xs text-gray-500 uppercase tracking-widest">
-                    Name *
-                  </label>
-                  <input
-                    name="name"
-                    value={form.name}
-                    onChange={handleChange}
-                    required
-                    placeholder="Sohan Islam"
-                    className="w-full bg-[#060c18] border border-white/8 rounded-xl px-4 py-3 text-sm text-gray-200 placeholder-gray-600 focus:outline-none focus:border-orange-500/50 focus:ring-1 focus:ring-orange-500/20 transition"
-                  />
-                </div>
-                <div className="space-y-1.5">
-                  <label className="text-xs text-gray-500 uppercase tracking-widest">
-                    Email *
-                  </label>
-                  <input
-                    name="email"
-                    type="email"
-                    value={form.email}
-                    onChange={handleChange}
-                    required
-                    placeholder="you@email.com"
-                    className="w-full bg-[#060c18] border border-white/8 rounded-xl px-4 py-3 text-sm text-gray-200 placeholder-gray-600 focus:outline-none focus:border-orange-500/50 focus:ring-1 focus:ring-orange-500/20 transition"
-                  />
-                </div>
-              </div>
+              <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-orange-400/70 to-transparent" />
+              <div className="absolute -right-16 -top-16 h-44 w-44 rounded-full bg-orange-500/10 blur-3xl" />
 
-              <div className="space-y-1.5">
-                <label className="text-xs text-gray-500 uppercase tracking-widest">
-                  Subject
-                </label>
+              <div className="relative space-y-5">
+                <div>
+                  <p className="font-mono-code text-[11px] uppercase tracking-[0.28em] text-orange-300">
+                    Project inquiry
+                  </p>
+                  <h3 className="mt-2 font-display text-3xl font-black text-white">Tell me what you need</h3>
+                </div>
+
                 <input
-                  name="subject"
-                  value={form.subject}
+                  name="website"
+                  value={form.website}
                   onChange={handleChange}
-                  placeholder="Project collaboration..."
-                  className="w-full bg-[#060c18] border border-white/8 rounded-xl px-4 py-3 text-sm text-gray-200 placeholder-gray-600 focus:outline-none focus:border-orange-500/50 focus:ring-1 focus:ring-orange-500/20 transition"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  className="hidden"
+                  aria-hidden="true"
                 />
-              </div>
 
-              <div className="space-y-1.5">
-                <label className="text-xs text-gray-500 uppercase tracking-widest">
-                  Message *
-                </label>
-                <textarea
-                  name="message"
-                  value={form.message}
-                  onChange={handleChange}
-                  required
-                  rows={5}
-                  placeholder="Tell me about your project..."
-                  className="w-full bg-[#060c18] border border-white/8 rounded-xl px-4 py-3 text-sm text-gray-200 placeholder-gray-600 focus:outline-none focus:border-orange-500/50 focus:ring-1 focus:ring-orange-500/20 transition resize-none"
-                />
-              </div>
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <Field label="Name *">
+                    <input
+                      name="name"
+                      value={form.name}
+                      onChange={handleChange}
+                      required
+                      placeholder="Your name"
+                      className="input-pro"
+                    />
+                  </Field>
 
-              <button
-                type="submit"
-                disabled={status === 'loading' || status === 'success'}
-                className={`w-full flex items-center justify-center gap-2 py-3.5 rounded-xl font-semibold text-sm transition-all duration-300 ${
-                  status === 'success'
-                    ? 'bg-green-500 text-white'
-                    : 'bg-orange-500 hover:bg-orange-600 shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 hover:-translate-y-0.5'
-                } disabled:opacity-60 disabled:cursor-not-allowed`}
-              >
-                {status === 'loading' && (
-                  <span className="w-4 h-4 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+                  <Field label="Email *">
+                    <input
+                      name="email"
+                      type="email"
+                      value={form.email}
+                      onChange={handleChange}
+                      required
+                      placeholder="you@email.com"
+                      className="input-pro"
+                    />
+                  </Field>
+                </div>
+
+                <div className="grid gap-4 sm:grid-cols-2">
+                  <Field label="Phone">
+                    <input
+                      name="phone"
+                      value={form.phone}
+                      onChange={handleChange}
+                      placeholder="Optional"
+                      className="input-pro"
+                    />
+                  </Field>
+
+                  <Field label="Project type">
+                    <select
+                      name="projectType"
+                      value={form.projectType}
+                      onChange={handleChange}
+                      className="input-pro"
+                    >
+                      {projectTypes.map(type => (
+                        <option key={type} value={type} className="bg-[#0c1526] text-white">
+                          {type}
+                        </option>
+                      ))}
+                    </select>
+                  </Field>
+                </div>
+
+                <Field label="Subject">
+                  <input
+                    name="subject"
+                    value={form.subject}
+                    onChange={handleChange}
+                    placeholder="Example: Need a company website"
+                    className="input-pro"
+                  />
+                </Field>
+
+                <Field label="Message *">
+                  <textarea
+                    name="message"
+                    value={form.message}
+                    onChange={handleChange}
+                    required
+                    rows={6}
+                    maxLength={2500}
+                    placeholder="Share your goal, timeline, budget range, and any links I should see..."
+                    className="input-pro resize-none"
+                  />
+                </Field>
+
+                <div className="flex flex-col gap-3 sm:flex-row sm:items-center">
+                  <button
+                    type="submit"
+                    disabled={status === 'loading' || status === 'success'}
+                    className={`group inline-flex flex-1 items-center justify-center gap-2 rounded-xl px-6 py-4 text-sm font-black transition-all duration-300 ${
+                      status === 'success'
+                        ? 'bg-green-500 text-white'
+                        : 'bg-orange-500 text-white shadow-xl shadow-orange-500/25 hover:-translate-y-1 hover:bg-orange-400 hover:shadow-orange-500/40'
+                    } disabled:cursor-not-allowed disabled:opacity-70`}
+                  >
+                    {status === 'loading' && (
+                      <span className="h-4 w-4 rounded-full border-2 border-white/30 border-t-white animate-spin" />
+                    )}
+                    {status === 'success' && <FaCheck />}
+                    {status !== 'loading' && status !== 'success' && <FaPaperPlane className="text-sm" />}
+                    {status === 'loading'
+                      ? 'Sending...'
+                      : status === 'success'
+                        ? 'Message sent'
+                        : 'Send message'}
+                  </button>
+
+                  <a
+                    href={`tel:${CONTACT_PHONE_LINK}`}
+                    className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 px-6 py-4 text-sm font-bold text-slate-300 transition-all duration-300 hover:border-green-500/30 hover:bg-green-500/10 hover:text-green-300"
+                  >
+                    <FaPhone className="text-xs" />
+                    Call now
+                  </a>
+                </div>
+
+                {notice && (
+                  <p
+                    className={`rounded-xl border px-4 py-3 text-center text-sm ${
+                      status === 'error'
+                        ? 'border-red-500/20 bg-red-500/10 text-red-300'
+                        : 'border-green-500/20 bg-green-500/10 text-green-300'
+                    }`}
+                    aria-live="polite"
+                  >
+                    {notice}
+                  </p>
                 )}
-                {status === 'success' && <FaCheck />}
-                {status === 'idle' && <FaPaperPlane className="text-sm" />}
-                {status === 'loading'
-                  ? 'Sending...'
-                  : status === 'success'
-                    ? 'Message Sent!'
-                    : 'Send Message'}
-              </button>
 
-              {status === 'error' && (
-                <p className="text-red-400 text-xs text-center">
-                  Something went wrong. Please try again.
+                <p className="text-center text-xs leading-6 text-slate-600">
+                  Your message is validated on the server and delivered to {CONTACT_EMAIL}.
                 </p>
-              )}
+              </div>
             </form>
           </motion.div>
         </div>
       </div>
     </section>
+  );
+}
+
+function Field({ label, children }) {
+  return (
+    <label className="block space-y-2">
+      <span className="font-mono-code text-[11px] uppercase tracking-[0.22em] text-slate-500">
+        {label}
+      </span>
+      {children}
+    </label>
   );
 }

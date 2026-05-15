@@ -18,8 +18,11 @@ export default function ProjectsPages() {
   const [active, setActive] = useState('All');
 
   const filtered = useMemo(
-    () => active === 'All' ? projects : projects.filter(p => p.tags?.includes(active)),
-    [active]
+    () =>
+      active === 'All'
+        ? projects
+        : projects.filter(p => p.tags?.includes(active)),
+    [active],
   );
 
   return (
@@ -77,14 +80,24 @@ export default function ProjectsPages() {
       {/* ── Scrolling ticker ── */}
       <div className="overflow-hidden border-b border-orange-500/8 bg-orange-500/3 py-2 mb-16">
         <div className="ticker-inner flex gap-10 whitespace-nowrap font-mono text-[11px] text-orange-500/35">
-          {Array(6).fill(['MY PROJECTS', 'REACT', 'NEXT.JS', 'NODE.JS', 'FULL-STACK', 'OPEN SOURCE', 'SOHAN ISLAM']).flat().map((t, i) => (
-            <span key={i}>✦ {t}</span>
-          ))}
+          {Array(6)
+            .fill([
+              'MY PROJECTS',
+              'REACT',
+              'NEXT.JS',
+              'NODE.JS',
+              'FULL-STACK',
+              'OPEN SOURCE',
+              'SOHAN ISLAM',
+            ])
+            .flat()
+            .map((t, i) => (
+              <span key={i}>✦ {t}</span>
+            ))}
         </div>
       </div>
 
       <div className="relative z-10 w-11/12 max-w-6xl mx-auto space-y-14">
-
         {/* ═══════════════════════════
             HEADER
         ═══════════════════════════ */}
@@ -97,7 +110,9 @@ export default function ProjectsPages() {
               className="inline-flex items-center gap-2 border border-orange-500/20 bg-orange-500/5 rounded-full px-4 py-1.5"
             >
               <FaFolderOpen className="text-orange-400 text-xs" />
-              <span className="font-mono text-[11px] text-orange-400 tracking-[0.25em] uppercase">Portfolio</span>
+              <span className="font-mono text-[11px] text-orange-400 tracking-[0.25em] uppercase">
+                Portfolio
+              </span>
             </motion.div>
 
             <motion.h1
@@ -115,7 +130,8 @@ export default function ProjectsPages() {
               transition={{ delay: 0.2 }}
               className="text-gray-500 text-sm max-w-sm leading-relaxed"
             >
-              A collection of things I&apos;ve built — from experiments to real-world full-stack apps.
+              A collection of things I&apos;ve built — from experiments to
+              real-world full-stack apps.
             </motion.p>
           </div>
 
@@ -127,18 +143,32 @@ export default function ProjectsPages() {
             className="flex gap-3 flex-wrap md:flex-nowrap shrink-0"
           >
             {[
-              { icon: <FaLayerGroup />, value: projects.length, label: 'Projects' },
-              { icon: <FaCode />,       value: categories.length - 1, label: 'Tech Tags' },
+              {
+                icon: <FaLayerGroup />,
+                value: projects.length,
+                label: 'Projects',
+              },
+              {
+                icon: <FaCode />,
+                value: categories.length - 1,
+                label: 'Tech Tags',
+              },
             ].map((s, i) => (
               <div
                 key={i}
                 className="flex items-center gap-3 px-4 py-3 rounded-xl border border-white/6"
-                style={{ background: 'linear-gradient(135deg,#0d1526,#080c18)' }}
+                style={{
+                  background: 'linear-gradient(135deg,#0d1526,#080c18)',
+                }}
               >
                 <span className="text-orange-400 text-sm">{s.icon}</span>
                 <div>
-                  <p className="font-display font-black text-xl text-white leading-none">{s.value}+</p>
-                  <p className="text-[10px] text-gray-500 font-mono">{s.label}</p>
+                  <p className="font-display font-black text-xl text-white leading-none">
+                    {s.value}+
+                  </p>
+                  <p className="text-[10px] text-gray-500 font-mono">
+                    {s.label}
+                  </p>
                 </div>
               </div>
             ))}
@@ -163,8 +193,12 @@ export default function ProjectsPages() {
                 onClick={() => setActive(cat)}
                 className="filter-tab relative text-xs font-mono font-semibold px-4 py-2 rounded-xl border"
                 style={{
-                  background: isActive ? 'rgba(249,115,22,0.12)' : 'rgba(255,255,255,0.02)',
-                  borderColor: isActive ? 'rgba(249,115,22,0.4)' : 'rgba(255,255,255,0.07)',
+                  background: isActive
+                    ? 'rgba(249,115,22,0.12)'
+                    : 'rgba(255,255,255,0.02)',
+                  borderColor: isActive
+                    ? 'rgba(249,115,22,0.4)'
+                    : 'rgba(255,255,255,0.07)',
                   color: isActive ? '#f97316' : '#6b7280',
                 }}
               >
@@ -196,22 +230,19 @@ export default function ProjectsPages() {
             {filtered.length > 0 ? (
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {filtered.map((project, i) => (
-                  <ProjectsCards
-                    key={project.id}
-                    project={project}
-                    index={i}
-                  />
+                  <ProjectsCards key={project.id} project={project} index={i} />
                 ))}
               </div>
             ) : (
               <div className="py-24 text-center text-gray-600">
                 <FaFolderOpen className="text-4xl mx-auto mb-3 opacity-30" />
-                <p className="font-mono text-sm">No projects found for &quot;{active}&quot;</p>
+                <p className="font-mono text-sm">
+                  No projects found for &quot;{active}&quot;
+                </p>
               </div>
             )}
           </motion.div>
         </AnimatePresence>
-
       </div>
     </section>
   );

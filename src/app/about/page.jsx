@@ -429,7 +429,7 @@ const AboutPages = () => {
         <motion.div {...fadeUp(0)} className="space-y-10">
           <div className="flex items-end justify-between">
             <div>
-              <p className="font-mono-code text-xs text-orange-500/60 tracking-widest mb-2">// CAPABILITIES</p>
+              <p className="font-mono-code text-xs text-orange-500/60 tracking-widest mb-2">CAPABILITIES</p>
               <h3 className="font-display text-3xl md:text-4xl font-black">
                 What I <span className="text-orange-400">Do</span>
               </h3>
@@ -471,7 +471,7 @@ const AboutPages = () => {
         ═══════════════════════════════════════ */}
         <motion.div {...fadeUp(0)} className="space-y-10">
           <div>
-            <p className="font-mono-code text-xs text-orange-500/60 tracking-widest mb-2">// JOURNEY</p>
+            <p className="font-mono-code text-xs text-orange-500/60 tracking-widest mb-2">JOURNEY</p>
             <h3 className="font-display text-3xl md:text-4xl font-black">
               Education &amp; <span className="text-orange-400">Experience</span>
             </h3>
@@ -538,12 +538,12 @@ const AboutPages = () => {
           <div className="absolute bottom-0 right-0 w-32 h-32 border-b border-r border-orange-500/20 rounded-br-3xl" />
 
           <div className="relative p-12 md:p-16 text-center space-y-4">
-            <p className="font-mono-code text-xs text-orange-500/50 tracking-[0.3em] uppercase">// NEXT STEP</p>
+            <p className="font-mono-code text-xs text-orange-500/50 tracking-[0.3em] uppercase">NEXT STEP</p>
             <h3 className="font-display text-3xl md:text-4xl font-black">
               Ready to Work <span className="shimmer-text">Together?</span>
             </h3>
             <p className="text-gray-400 max-w-md mx-auto text-sm leading-7">
-              Interested in junior roles, internships, and freelance projects. Let's create something amazing together! 🚀
+              Interested in junior roles, internships, and freelance projects. Let&apos;s create something amazing together! 🚀
             </p>
             <div className="flex flex-wrap justify-center gap-4 pt-4">
               <Link

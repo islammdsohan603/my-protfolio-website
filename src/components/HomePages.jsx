@@ -33,7 +33,6 @@ const SOCIAL = [
 ───────────────────────────────────────── */
 export default function HomePages() {
   const [roleIndex, setRoleIndex] = useState(0);
-  const [mounted, setMounted]     = useState(false);
   const sectionRef = useRef(null);
 
   /* Mouse spotlight */
@@ -47,7 +46,6 @@ export default function HomePages() {
   );
 
   useEffect(() => {
-    setMounted(true);
     const interval = setInterval(() => setRoleIndex(p => (p + 1) % ROLES.length), 2800);
     const onMove = (e) => { mouseX.set(e.clientX); mouseY.set(e.clientY); };
     window.addEventListener('mousemove', onMove);
@@ -112,7 +110,7 @@ export default function HomePages() {
 
         /* Ring spin */
         @keyframes spin-cw  { to { transform: rotate(360deg);  } }
-        @keytml spin-ccw { to { transform: rotate(-360deg); } }
+        @keyframes spin-ccw { to { transform: rotate(-360deg); } }
         .ring-cw  { animation: spin-cw  24s linear infinite; }
         .ring-ccw { animation: spin-cw  18s linear infinite reverse; }
 
@@ -160,9 +158,7 @@ export default function HomePages() {
       </div>
 
       {/* ───── Mouse spotlight ───── */}
-      {mounted && (
-        <motion.div className="pointer-events-none absolute inset-0 z-0" style={{ background: spotBg }} />
-      )}
+      <motion.div className="pointer-events-none absolute inset-0 z-0" style={{ background: spotBg }} />
 
       {/* ───── Vertical side text ───── */}
       <div className="absolute left-5 top-1/2 -translate-y-1/2 hidden xl:flex flex-col items-center gap-4 z-20">
@@ -278,10 +274,10 @@ export default function HomePages() {
               transition={{ delay: 0.42 }}
               className="text-gray-400 text-[15px] leading-[1.85] max-w-lg"
             >
-              I craft{' '}
-              <span className="text-white font-semibold">fast, modern web applications</span>{' '}
-              with clean code and exceptional user experience. Currently in 5th semester at Polytechnic Institute —
-              turning ideas into reality with{' '}
+              I build{' '}
+              <span className="text-white font-semibold">business-ready web experiences</span>{' '}
+              that feel premium, load fast, and turn visitors into clients. Currently in 5th semester at Polytechnic Institute -
+              shipping polished products with{' '}
               <span className="text-orange-400 font-semibold">React, Next.js & Node.js</span>.
             </motion.p>
 

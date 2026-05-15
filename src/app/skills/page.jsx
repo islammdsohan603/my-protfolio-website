@@ -362,7 +362,7 @@ export default function SkillsPages() {
 
           <div className="p-8 md:p-10">
             <div className="flex items-center gap-3 mb-6">
-              <span className="font-mono text-[11px] text-gray-600 tracking-[0.25em] uppercase">// Also familiar with</span>
+              <span className="font-mono text-[11px] text-gray-600 tracking-[0.25em] uppercase">Also familiar with</span>
               <div className="flex-1 h-px bg-white/5" />
             </div>
 

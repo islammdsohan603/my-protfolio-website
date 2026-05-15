@@ -102,6 +102,12 @@ html.lenis body {
   }
 }
 
+@layer components {
+  .input-pro {
+    @apply w-full rounded-xl border border-white/8 bg-[#060b16] px-4 py-3 text-sm text-slate-100 outline-none transition placeholder:text-slate-600 focus:border-orange-500/50 focus:bg-[#07101e] focus:ring-2 focus:ring-orange-500/15;
+  }
+}
+
 ::selection {
   background: rgba(249, 115, 22, 0.3);
   color: #fff;

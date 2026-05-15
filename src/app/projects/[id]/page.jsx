@@ -318,7 +318,7 @@ export default function ProjectDetails() {
           <div className="absolute top-0 left-0 right-0 h-px" style={{ background: `linear-gradient(90deg, transparent, ${a.color}40, transparent)` }} />
           <div className="p-6 flex items-center justify-between gap-4 flex-wrap">
             <div>
-              <p className="font-mono text-[11px] text-gray-600 uppercase tracking-widest mb-1">// Want to see more?</p>
+              <p className="font-mono text-[11px] text-gray-600 uppercase tracking-widest mb-1">Want to see more?</p>
               <p className="text-sm text-gray-300 font-semibold">Check out all my projects on GitHub</p>
             </div>
             <motion.a
