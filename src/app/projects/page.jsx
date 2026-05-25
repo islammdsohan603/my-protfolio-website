@@ -5,6 +5,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { FaFolderOpen, FaCode, FaLayerGroup } from 'react-icons/fa6';
 import projects from '@/data/projects.json';
 import ProjectsCards from '@/components/ProjectsCards';
+import PageBackdrop from '@/components/ui/PageBackdrop';
 
 /* ─── collect unique filter tags from projects ─── */
 function getCategories(projects) {
@@ -27,9 +28,10 @@ export default function ProjectsPages() {
 
   return (
     <section
-      className="theme-surface relative py-12 md:py-20 overflow-hidden"
-      style={{ fontFamily: "'Poppins', sans-serif" }}
+      id="projects"
+      className="theme-surface relative overflow-hidden py-12 font-body md:py-20"
     >
+      <PageBackdrop />
       <style>{`
         .font-display { font-family: 'Poppins', sans-serif; }
         .font-mono    { font-family: 'Poppins', sans-serif; }
@@ -53,13 +55,6 @@ export default function ProjectsPages() {
           animation: shimmer 4s linear infinite;
         }
 
-        /* Ticker */
-        @keyframes ticker {
-          from { transform: translateX(0); }
-          to   { transform: translateX(-50%); }
-        }
-        .ticker-inner { animation: ticker 28s linear infinite; }
-
         /* Filter tab */
         .filter-tab {
           transition: all 0.22s ease;
@@ -69,34 +64,7 @@ export default function ProjectsPages() {
         .filter-tab:hover { color: var(--color-accent-strong); border-color: var(--color-border-strong); }
       `}</style>
 
-      {/* ── Background ── */}
-      <div className="absolute inset-0 dot-grid-proj pointer-events-none opacity-70" />
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 right-0 w-[500px] h-[500px] rounded-full blur-[100px]" style={{ background: 'var(--orb-gold)' }} />
-        <div className="absolute bottom-0 left-0 w-[350px] h-[350px] bg-blue-500/4 rounded-full blur-[80px]" />
-      </div>
-
-      {/* ── Scrolling ticker ── */}
-      <div className="overflow-hidden border-b py-2 mb-10" style={{ borderColor: 'var(--color-border)', background: 'color-mix(in srgb, var(--color-accent) 4%, transparent)' }}>
-        <div className="ticker-inner flex gap-10 whitespace-nowrap font-mono text-[11px]" style={{ color: 'color-mix(in srgb, var(--color-accent) 45%, transparent)' }}>
-          {Array(6)
-            .fill([
-              'MY PROJECTS',
-              'REACT',
-              'NEXT.JS',
-              'NODE.JS',
-              'FULL-STACK',
-              'OPEN SOURCE',
-              'SOHAN ISLAM',
-            ])
-            .flat()
-            .map((t, i) => (
-              <span key={i}>✦ {t}</span>
-            ))}
-        </div>
-      </div>
-
-      <div className="relative z-10 w-11/12 max-w-6xl mx-auto space-y-10">
+      <div className="relative z-10 mx-auto w-11/12 max-w-6xl space-y-10">
         {/* ═══════════════════════════
             HEADER
         ═══════════════════════════ */}
@@ -156,17 +124,14 @@ export default function ProjectsPages() {
             ].map((s, i) => (
               <div
                 key={i}
-                className="flex items-center gap-3 px-4 py-3 rounded-xl border border-white/6"
-                style={{
-                  background: 'linear-gradient(135deg,var(--color-panel-strong),var(--color-bg-soft))',
-                }}
+                className="glass-panel flex items-center gap-3 rounded-xl px-4 py-3"
               >
                 <span className="text-sm" style={{ color: 'var(--color-accent-strong)' }}>{s.icon}</span>
                 <div>
-                  <p className="font-display font-black text-xl text-white leading-none">
+                  <p className="font-display text-xl font-black leading-none text-[var(--color-text)]">
                     {s.value}+
                   </p>
-                  <p className="text-[10px] text-gray-500 font-mono">
+                  <p className="font-mono text-[10px] theme-faint">
                     {s.label}
                   </p>
                 </div>

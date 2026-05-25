@@ -1,10 +1,12 @@
 'use client';
+
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useState, useEffect } from 'react';
 import { FaGithub, FaBars, FaXmark, FaMoon, FaSun } from 'react-icons/fa6';
 import { motion, AnimatePresence } from 'framer-motion';
 import { useTheme } from '@/providers/ThemeProvider';
+import { easePremium } from '@/lib/motion';
 
 const navItems = [
   { path: '/', title: 'Home' },
@@ -22,50 +24,69 @@ export default function Navbar() {
   const isLight = theme === 'light';
 
   useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 20);
+    const handler = () => setScrolled(window.scrollY > 24);
     window.addEventListener('scroll', handler);
     return () => window.removeEventListener('scroll', handler);
   }, []);
 
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? 'hidden' : '';
+    return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
+
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
-          ? 'border-b shadow-lg backdrop-blur-xl'
-          : 'bg-transparent'
-      }`}
-      style={scrolled ? { background: 'color-mix(in srgb, var(--color-bg) 90%, transparent)', borderColor: 'var(--color-border)' } : undefined}
-    >
-      <nav className="w-11/12 max-w-6xl mx-auto flex items-center justify-between py-4">
-        {/* Logo */}
-        <Link href="/" className="group flex items-center gap-1">
-          <div className="w-10 h-10 flex items-center justify-center rounded-lg backdrop-blur-md border font-bold text-xl shadow-lg"
-            style={{ background: 'var(--color-panel)', borderColor: 'var(--color-border-strong)', color: 'var(--color-accent-strong)' }}>
+    <header className="fixed top-0 left-0 right-0 z-50 px-4 pt-4 md:px-6">
+      <motion.nav
+        layout
+        transition={{ duration: 0.35, ease: easePremium }}
+        className={`mx-auto flex max-w-6xl items-center justify-between rounded-2xl px-4 py-3 md:px-6 ${
+          scrolled ? 'glass-panel shadow-lg' : 'bg-transparent'
+        }`}
+        style={
+          scrolled
+            ? {
+                background: 'color-mix(in srgb, var(--color-panel) 92%, transparent)',
+                border: '1px solid var(--color-border)',
+              }
+            : undefined
+        }
+      >
+        <Link href="/" className="group flex items-center gap-2.5">
+          <motion.div
+            whileHover={{ rotate: 8, scale: 1.05 }}
+            className="font-display flex h-10 w-10 items-center justify-center rounded-xl border text-lg font-extrabold"
+            style={{
+              background: 'linear-gradient(135deg, color-mix(in srgb, var(--color-accent) 20%, transparent), transparent)',
+              borderColor: 'var(--color-border-strong)',
+              color: 'var(--color-accent-strong)',
+            }}
+          >
             S
-          </div>
+          </motion.div>
+          <span className="hidden font-display text-sm font-bold tracking-tight sm:block">
+            Sohan<span className="theme-accent">.</span>
+          </span>
         </Link>
 
-        {/* Desktop Nav Links */}
-        <div className="hidden md:flex items-center gap-1">
-          {navItems.map(item => {
+        <div className="hidden items-center gap-1 md:flex">
+          {navItems.map((item) => {
             const isActive = pathname === item.path;
             return (
               <Link
                 key={item.path}
                 href={item.path}
-                className={`relative px-4 py-2 rounded-lg text-sm font-medium transition-all duration-300 ${
-                  isActive
-                    ? ''
-                    : 'hover:text-[var(--color-text)]'
-                }`}
+                className="relative px-4 py-2 text-sm font-medium transition-colors"
                 style={{ color: isActive ? 'var(--color-accent-strong)' : 'var(--color-muted)' }}
               >
                 {isActive && (
                   <motion.span
-                    layoutId="activeTab"
-                    className="absolute inset-0 rounded-lg border"
-                    style={{ background: 'color-mix(in srgb, var(--color-accent) 10%, transparent)', borderColor: 'var(--color-border-strong)' }}
-                    transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                    layoutId="navPill"
+                    className="absolute inset-0 rounded-xl"
+                    style={{
+                      background: 'color-mix(in srgb, var(--color-accent) 12%, transparent)',
+                      border: '1px solid var(--color-border-strong)',
+                    }}
+                    transition={{ type: 'spring', stiffness: 380, damping: 28 }}
                   />
                 )}
                 <span className="relative">{item.title}</span>
@@ -75,64 +96,71 @@ export default function Navbar() {
         </div>
 
         <div className="flex items-center gap-2">
-          <button
+          <motion.button
             type="button"
+            whileTap={{ scale: 0.92 }}
             onClick={toggleTheme}
-            aria-label={isLight ? 'Switch to dark theme' : 'Switch to light theme'}
-            title={isLight ? 'Dark mode' : 'Light mode'}
-            className="relative flex h-10 w-10 items-center justify-center rounded-lg border transition-all hover:-translate-y-0.5"
-            style={{
-              background: 'var(--color-panel)',
-              borderColor: 'var(--color-border)',
-              color: 'var(--color-accent-strong)',
-            }}
+            aria-label={isLight ? 'Dark mode' : 'Light mode'}
+            className="glass flex h-10 w-10 items-center justify-center rounded-xl transition-colors"
+            style={{ color: 'var(--color-accent-strong)' }}
           >
             {isLight ? <FaMoon size={15} /> : <FaSun size={15} />}
-          </button>
+          </motion.button>
+
+          <Link
+            href="https://github.com/islammdsohan603"
+            target="_blank"
+            className="hidden h-10 w-10 items-center justify-center rounded-xl border transition-all hover:-translate-y-0.5 md:flex"
+            style={{
+              borderColor: 'var(--color-border)',
+              color: 'var(--color-muted)',
+              background: 'var(--glass)',
+            }}
+          >
+            <FaGithub size={16} />
+          </Link>
 
           <button
+            type="button"
             onClick={() => setMenuOpen(!menuOpen)}
-            className="md:hidden p-2 rounded-lg transition-all hover:bg-white/5"
+            className="flex h-10 w-10 items-center justify-center rounded-xl md:hidden"
             style={{ color: 'var(--color-muted)' }}
+            aria-label="Menu"
           >
             {menuOpen ? <FaXmark size={22} /> : <FaBars size={22} />}
           </button>
         </div>
-      </nav>
+      </motion.nav>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {menuOpen && (
           <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden overflow-hidden border-b backdrop-blur-xl"
-            style={{ background: 'color-mix(in srgb, var(--color-bg) 95%, transparent)', borderColor: 'var(--color-border)' }}
+            initial={{ opacity: 0, y: -12 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -12 }}
+            transition={{ duration: 0.28, ease: easePremium }}
+            className="glass-panel mx-auto mt-2 max-w-6xl overflow-hidden rounded-2xl border md:hidden"
           >
-            <div className="w-11/12 mx-auto py-4 flex flex-col gap-1">
+            <div className="flex flex-col gap-1 p-4">
               {navItems.map((item, i) => {
                 const isActive = pathname === item.path;
                 return (
                   <motion.div
                     key={item.path}
-                    initial={{ opacity: 0, x: -20 }}
+                    initial={{ opacity: 0, x: -16 }}
                     animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: i * 0.07 }}
+                    transition={{ delay: i * 0.05 }}
                   >
                     <Link
                       href={item.path}
                       onClick={() => setMenuOpen(false)}
-                      className={`block px-4 py-3 rounded-xl font-medium transition-all duration-200 ${
-                        isActive
-                          ? 'border'
-                          : 'hover:bg-white/5'
-                      }`}
+                      className="block rounded-xl px-4 py-3 font-medium"
                       style={{
                         color: isActive ? 'var(--color-accent-strong)' : 'var(--color-muted)',
-                        background: isActive ? 'color-mix(in srgb, var(--color-accent) 10%, transparent)' : undefined,
-                        borderColor: isActive ? 'var(--color-border-strong)' : undefined,
+                        background: isActive
+                          ? 'color-mix(in srgb, var(--color-accent) 10%, transparent)'
+                          : undefined,
+                        border: isActive ? '1px solid var(--color-border-strong)' : '1px solid transparent',
                       }}
                     >
                       {item.title}
@@ -140,27 +168,6 @@ export default function Navbar() {
                   </motion.div>
                 );
               })}
-              <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                transition={{ delay: 0.4 }}
-                className="pt-2"
-              >
-                <Link
-                  href="https://github.com/islammdsohan603"
-                  target="_blank"
-                  onClick={() => setMenuOpen(false)}
-                  className="flex items-center gap-2 px-4 py-3 border rounded-xl font-medium"
-                  style={{
-                    background: 'color-mix(in srgb, var(--color-accent) 10%, transparent)',
-                    borderColor: 'var(--color-border-strong)',
-                    color: 'var(--color-accent-strong)',
-                  }}
-                >
-                  <FaGithub />
-                  GitHub Profile
-                </Link>
-              </motion.div>
             </div>
           </motion.div>
         )}

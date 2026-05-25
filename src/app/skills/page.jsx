@@ -1,12 +1,13 @@
 'use client';
 import React, { useRef, useState } from 'react';
-import { motion, useScroll, useTransform, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import {
   FaReact, FaNodeJs, FaGithub, FaHtml5, FaCss3Alt, FaDatabase,
 } from 'react-icons/fa6';
 import {
   SiNextdotjs, SiTailwindcss, SiMongodb, SiExpress, SiJavascript, SiTypescript,
 } from 'react-icons/si';
+import PageBackdrop from '@/components/ui/PageBackdrop';
 
 /* ───────────────────────────────────────────────────────
    DATA
@@ -63,7 +64,7 @@ function CircleProgress({ level, color, size = 56 }) {
   const circ = 2 * Math.PI * r;
   return (
     <svg width={size} height={size} className="absolute inset-0 -rotate-90">
-      <circle cx={size/2} cy={size/2} r={r} fill="none" stroke="rgba(255,255,255,0.04)" strokeWidth="3" />
+      <circle cx={size/2} cy={size/2} r={r} fill="none" stroke="var(--color-border)" strokeWidth="3" />
       <motion.circle
         cx={size/2} cy={size/2} r={r}
         fill="none" stroke={color} strokeWidth="3"
@@ -92,11 +93,11 @@ function SkillCard({ skill, color, glowColor, index }) {
       whileHover={{ y: -6, scale: 1.02 }}
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
-      className="relative rounded-xl p-4 border border-white/5 cursor-default overflow-hidden transition-all duration-300 group"
+      className="card-premium relative cursor-default overflow-hidden p-4 transition-all duration-300 group"
       style={{
         background: 'linear-gradient(135deg, var(--color-panel-strong) 0%, var(--color-bg-soft) 100%)',
         boxShadow: hovered ? `0 0 30px ${glowColor}, 0 4px 24px rgba(0,0,0,0.4)` : '0 2px 12px rgba(0,0,0,0.3)',
-        borderColor: hovered ? `${color}35` : 'rgba(255,255,255,0.05)',
+        borderColor: hovered ? `${color}35` : 'var(--color-border)',
       }}
     >
       {/* Card inner glow top */}
@@ -130,7 +131,7 @@ function SkillCard({ skill, color, glowColor, index }) {
         {/* Info */}
         <div className="flex-1 min-w-0">
           <div className="flex items-center justify-between mb-0.5">
-            <span className="font-bold text-[15px] text-white font-display">{skill.name}</span>
+            <span className="font-display text-[15px] font-bold text-[var(--color-text)]">{skill.name}</span>
             <span
               className="font-mono text-xs font-bold tabular-nums"
               style={{ color }}
@@ -146,7 +147,7 @@ function SkillCard({ skill, color, glowColor, index }) {
           </span>
 
           {/* Progress bar */}
-          <div className="mt-3 h-1 bg-white/5 rounded-full overflow-hidden">
+          <div className="mt-3 h-1 overflow-hidden rounded-full bg-[var(--color-border)]">
             <motion.div
               initial={{ width: 0 }}
               whileInView={{ width: `${skill.level}%` }}
@@ -167,16 +168,14 @@ function SkillCard({ skill, color, glowColor, index }) {
 ─────────────────────────────────────────────────────── */
 export default function SkillsPages() {
   const sectionRef = useRef(null);
-  const { scrollYProgress } = useScroll({ target: sectionRef });
-  const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '20%']);
 
   return (
     <section
       ref={sectionRef}
       id="skills"
-      className="theme-surface relative py-12 md:py-20 overflow-hidden"
-      style={{ fontFamily: "'Poppins', sans-serif" }}
+      className="theme-surface relative overflow-hidden py-12 font-body md:py-20"
     >
+      <PageBackdrop />
       <style>{`
         .font-display  { font-family: 'Poppins', sans-serif; }
         .font-mono     { font-family: 'Poppins', sans-serif; }
@@ -220,26 +219,7 @@ export default function SkillsPages() {
         }
       `}</style>
 
-      {/* ── Parallax dot grid ── */}
-      <motion.div style={{ y: bgY }} className="absolute inset-0 dot-grid pointer-events-none opacity-60" />
-
-      {/* ── Ambient blobs ── */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <div
-          className="absolute top-[-100px] left-1/2 -translate-x-1/2 w-[700px] h-[400px] rounded-full blur-[120px]"
-          style={{ background: 'radial-gradient(ellipse, rgba(249,115,22,0.08), transparent 70%)', animation: 'float-orb 8s ease-in-out infinite' }}
-        />
-        <div
-          className="absolute bottom-0 right-0 w-[400px] h-[400px] rounded-full blur-[100px]"
-          style={{ background: 'radial-gradient(ellipse, rgba(56,189,248,0.06), transparent 70%)', animation: 'float-orb 10s ease-in-out infinite 2s' }}
-        />
-        <div
-          className="absolute top-1/2 left-0 w-[300px] h-[300px] rounded-full blur-[80px]"
-          style={{ background: 'radial-gradient(ellipse, rgba(167,139,250,0.05), transparent 70%)', animation: 'float-orb 12s ease-in-out infinite 4s' }}
-        />
-      </div>
-
-      <div className="relative z-10 w-11/12 max-w-5xl mx-auto space-y-14">
+      <div className="relative z-10 mx-auto w-11/12 max-w-5xl space-y-14">
 
         {/* ═══════════════════════════
             HEADER
@@ -355,7 +335,7 @@ export default function SkillsPages() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: false, amount: 0.2 }}
           transition={{ duration: 0.6 }}
-          className="relative rounded-3xl border border-white/5 overflow-hidden"
+          className="card-premium relative overflow-hidden rounded-3xl"
           style={{ background: 'linear-gradient(135deg, var(--color-panel-strong) 0%, var(--color-bg-soft) 100%)' }}
         >
           {/* Top glow line */}
@@ -408,7 +388,7 @@ export default function SkillsPages() {
           ].map((s, i) => (
             <div
               key={i}
-              className="rounded-xl py-4 border border-white/5"
+              className="glass-panel rounded-xl py-4"
               style={{ background: 'linear-gradient(135deg, var(--color-panel-strong) 0%, var(--color-bg-soft) 100%)' }}
             >
               <p className="font-display text-3xl font-black" style={{ color: s.color }}>{s.value}</p>

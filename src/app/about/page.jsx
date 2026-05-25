@@ -3,7 +3,7 @@
 import React, { useRef } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import {
   FaCode,
   FaDownload,
@@ -13,6 +13,7 @@ import {
   FaStar,
   FaTrophy,
 } from 'react-icons/fa6';
+import PageBackdrop from '@/components/ui/PageBackdrop';
 
 const timeline = [
   {
@@ -120,15 +121,14 @@ const cardReveal = (delay = 0) => ({
 
 const AboutPages = () => {
   const containerRef = useRef(null);
-  const { scrollYProgress } = useScroll({ target: containerRef });
-  const bgY = useTransform(scrollYProgress, [0, 1], ['0%', '12%']);
 
   return (
     <section
       ref={containerRef}
-      className="theme-surface relative overflow-hidden pt-20"
-      style={{ fontFamily: "'Poppins', sans-serif" }}
+      id="about"
+      className="theme-surface relative overflow-hidden pt-20 font-body"
     >
+      <PageBackdrop />
       <style>{`
         .font-display { font-family: 'Poppins', sans-serif; }
         .font-mono-code { font-family: 'Poppins', sans-serif; }
@@ -165,41 +165,7 @@ const AboutPages = () => {
         }
       `}</style>
 
-      <motion.div
-        style={{ y: bgY }}
-        className="absolute inset-0 executive-grid opacity-80 pointer-events-none"
-      />
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background:
-            'radial-gradient(ellipse at top right, var(--orb-gold), transparent 40%), radial-gradient(ellipse at 10% 45%, var(--orb-cyan), transparent 34%)',
-        }}
-      />
-
-      <div className="relative overflow-hidden border-b border-white/8 bg-[#090d14]/70 py-2">
-        <motion.div
-          animate={{ x: ['0%', '-50%'] }}
-          transition={{ duration: 34, repeat: Infinity, ease: 'linear' }}
-          className="font-mono-code flex gap-12 whitespace-nowrap text-xs text-[#d6a84f]/45"
-        >
-          {Array(4)
-            .fill([
-              'SOHAN ISLAM',
-              'FULL-STACK DEVELOPER',
-              'BANGLADESH',
-              'REACT / NEXT.JS / NODE',
-              'OPEN TO WORK',
-              'POLYTECHNIC 5TH SEM',
-            ])
-            .flat()
-            .map((t, i) => (
-              <span key={`${t}-${i}`}>+ {t}</span>
-            ))}
-        </motion.div>
-      </div>
-
-      <div className="relative mx-auto w-11/12 max-w-6xl space-y-20 py-16 md:space-y-24 md:py-20">
+      <div className="relative z-10 mx-auto w-11/12 max-w-6xl space-y-20 py-16 md:space-y-24 md:py-20">
         <div className="grid grid-cols-1 items-center gap-10 lg:grid-cols-2 lg:gap-14">
           <motion.div
             initial={{ opacity: 0, x: -48 }}
@@ -223,7 +189,7 @@ const AboutPages = () => {
                   priority
                 />
 
-                <div className="absolute left-4 top-4 z-10 flex items-center gap-2 rounded-full border border-[#2dd4bf]/25 bg-[#071116]/85 px-3 py-1.5 backdrop-blur-sm">
+                <div className="glass-panel absolute left-4 top-4 z-10 flex items-center gap-2 rounded-full px-3 py-1.5">
                   <span className="h-2 w-2 rounded-full bg-[#2dd4bf]" />
                   <span className="font-mono-code text-xs font-medium text-[#adfff7]">
                     Open to Work
@@ -238,7 +204,7 @@ const AboutPages = () => {
                   repeat: Infinity,
                   ease: 'easeInOut',
                 }}
-                className="absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-xl border border-white/10 bg-[#101722]/95 px-6 py-3 text-center shadow-2xl backdrop-blur-md"
+                className="glass-panel absolute -bottom-6 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-xl px-6 py-3 text-center"
               >
                 <p className="font-mono-code text-[10px] uppercase tracking-widest text-slate-500">
                   Computer Science & Tech
@@ -264,7 +230,7 @@ const AboutPages = () => {
             <div className="space-y-4 text-[15px] leading-8 text-slate-400">
               <p>
                 I&apos;m{' '}
-                <span className="font-semibold text-white">Sohan Islam</span>, a
+                <span className="font-semibold text-[var(--color-text)]">Sohan Islam</span>, a
                 self-driven web developer from Bangladesh. I passed PSC in 2017,
                 SSC in 2023, and I&apos;m currently studying Diploma in
                 Engineering at a Polytechnic Institute.
@@ -292,7 +258,7 @@ const AboutPages = () => {
                     stiffness: 300,
                   }}
                   whileHover={{ y: -2, borderColor: 'rgba(214,168,79,0.45)' }}
-                  className="cursor-default rounded-full border border-white/10 bg-white/[0.03] px-4 py-2 text-sm text-slate-300 transition-colors"
+                  className="cursor-default rounded-full border border-[var(--color-border)] bg-[var(--glass)] px-4 py-2 text-sm text-[var(--color-muted)] transition-colors"
                 >
                   {t.label}
                 </motion.span>
@@ -306,7 +272,7 @@ const AboutPages = () => {
                   initial={{ opacity: 0, y: 18 }}
                   whileInView={{ opacity: 1, y: 0 }}
                   transition={{ delay: 0.25 + i * 0.07 }}
-                  className="rounded-xl border border-white/8 bg-[#090d14]/80 p-3 text-center transition-colors hover:border-[#d6a84f]/25"
+                  className="glass-panel rounded-xl p-3 text-center transition-colors hover:border-[var(--color-border-strong)]"
                 >
                   <p className="font-display text-2xl font-black text-[#f5d58a]">
                     {s.value}
@@ -357,12 +323,12 @@ const AboutPages = () => {
                 key={item.title}
                 {...fadeUp(i * 0.1)}
                 whileHover={{ y: -7, scale: 1.01 }}
-                className="service-card relative overflow-hidden rounded-xl border border-white/8 bg-linear-to-br from-[#101722] to-[#090d14] p-5 transition-all duration-300 hover:border-[#d6a84f]/25"
+                className="service-card card-premium relative overflow-hidden p-5 transition-all duration-300 hover:border-[var(--color-border-strong)]"
               >
                 <span className="font-mono-code absolute right-5 top-5 text-4xl font-black text-white/[0.035]">
                   {item.icon}
                 </span>
-                <h4 className="font-display mb-2 text-xl font-bold text-white">
+                <h4 className="font-display mb-2 text-xl font-bold text-[var(--color-text)]">
                   {item.title}
                 </h4>
                 <p className="mb-5 text-sm leading-relaxed text-slate-500">
@@ -405,10 +371,10 @@ const AboutPages = () => {
                   key={item.step}
                   {...cardReveal(i * 0.11)}
                   whileHover={{ y: -4 }}
-                  className="education-card relative overflow-hidden rounded-xl border border-white/8 bg-linear-to-br from-[#101722]/95 to-[#090d14]/95 p-5 shadow-2xl shadow-black/18 transition-all duration-300 hover:border-[#d6a84f]/25 lg:ml-12"
+                  className="education-card card-premium relative overflow-hidden p-5 transition-all duration-300 hover:border-[var(--color-border-strong)] lg:ml-12"
                 >
                   <div
-                    className="absolute -left-[43px] top-8 hidden h-4 w-4 rounded-full border-2 bg-[#05070c] lg:block"
+                    className="absolute -left-[43px] top-8 hidden h-4 w-4 rounded-full border-2 bg-[var(--color-bg)] lg:block"
                     style={{
                       borderColor: item.accentColor,
                       boxShadow: `0 0 22px ${item.accentColor}55`,
@@ -442,7 +408,7 @@ const AboutPages = () => {
                           {item.year}
                         </span>
                       </div>
-                      <h4 className="font-display text-xl font-bold leading-tight text-white">
+                      <h4 className="font-display text-xl font-bold leading-tight text-[var(--color-text)]">
                         {item.title}
                       </h4>
                       <p className="mt-1 text-sm text-slate-400">{item.sub}</p>

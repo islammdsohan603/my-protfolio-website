@@ -1,59 +1,46 @@
 # Sohan Islam Portfolio
 
-A premium developer portfolio built with Next.js 16, React 19, Tailwind CSS,
-and Framer Motion. It includes polished sections for hero, about, skills,
-projects, and a production-ready contact form.
+A premium developer portfolio built with **Next.js 16**, **React 19**,
+**Tailwind CSS 4**, and **Framer Motion**. It includes polished sections for
+hero, about, skills, projects, and a production-ready contact form with Gmail
+SMTP.
 
 ## Live Demo
 
-https://my-nextjs-protfolio.vercel.app/
+[https://my-nextjs-protfolio.vercel.app/](https://my-nextjs-protfolio.vercel.app/)
 
 ## Features
 
-- Responsive portfolio design for desktop and mobile
+- Responsive layout for desktop and mobile
 - Animated hero, skills, projects, and contact sections
-- Dynamic project details powered by JSON data
-- Contact form API route with server-side validation
-- Gmail SMTP delivery with Nodemailer
-- Basic spam protection with honeypot and rate limiting
-- SEO metadata and structured data
+- Smooth scrolling (Lenis) and splash screen on first visit
+- Dark / light theme toggle
+- Dynamic project listing and detail pages from JSON data
+- Contact form API with server-side validation
+- Gmail SMTP delivery via Nodemailer
+- Spam protection: honeypot field and IP rate limiting
+- SEO metadata, Open Graph, and structured data
 
-## Contact Email Setup
+## Tech Stack
 
-Create a `.env` file in the project root using `.env.example` as the template:
-
-```env
-CONTACT_TO_EMAIL=islammdsohan603@gmail.com
-SMTP_HOST=smtp.gmail.com
-SMTP_PORT=465
-SMTP_SECURE=true
-SMTP_USER=your-gmail-address@gmail.com
-SMTP_PASS=your-16-character-gmail-app-password
-SMTP_FROM_NAME="Sohan Islam Portfolio"
-SMTP_FROM_EMAIL=your-gmail-address@gmail.com
-```
-
-For Gmail, use a Google App Password, not your normal Gmail password. In Google
-Account settings, enable 2-Step Verification, create an App Password, then place
-that 16-character password in `SMTP_PASS`.
-
-## Local Development
-
-```bash
-npm install
-npm run dev
-```
-
-## Production Build
-
-```bash
-npm run build
-npm start
-```
+| Layer     | Tools                             |
+| --------- | --------------------------------- |
+| Framework | Next.js 16 (App Router)           |
+| UI        | React 19, Tailwind CSS 4, DaisyUI |
+| Animation | Framer Motion                     |
+| Email     | Nodemailer (Gmail SMTP)           |
+| Deploy    | Vercel                            |
 
 ## Author
 
-MD Sohan Islam
+**MD Sohan Islam** — Frontend Developer, Bangladesh
 
-- GitHub: https://github.com/islammdsohan603
-- LinkedIn: https://www.linkedin.com/in/sohanislamwebdev/
+- Portfolio:
+  [my-nextjs-protfolio.vercel.app](https://my-nextjs-protfolio.vercel.app/)
+- GitHub: [islammdsohan603](https://github.com/islammdsohan603)
+- LinkedIn: [sohanislamwebdev](https://www.linkedin.com/in/sohanislamwebdev/)
+
+## License
+
+This project is private (`"private": true` in `package.json`). All rights
+reserved unless you choose to open-source it.

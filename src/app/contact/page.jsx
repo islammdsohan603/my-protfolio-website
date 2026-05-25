@@ -15,6 +15,7 @@ import {
   FaShieldHalved,
   FaArrowRight,
 } from 'react-icons/fa6';
+import PageBackdrop from '@/components/ui/PageBackdrop';
 
 const CONTACT_EMAIL = 'islammdsohan603@gmail.com';
 const CONTACT_PHONE = '01643223840';
@@ -143,9 +144,9 @@ export default function ContactPage() {
   return (
     <section
       id="contact"
-      className="theme-surface relative overflow-hidden py-12 md:py-20"
-      style={{ fontFamily: "'Poppins', sans-serif" }}
+      className="theme-surface relative overflow-hidden py-12 font-body md:py-20"
     >
+      <PageBackdrop />
       <style>{`
         .font-display { font-family: 'Poppins', sans-serif; }
         .font-mono-code { font-family: 'Poppins', sans-serif; }
@@ -167,13 +168,6 @@ export default function ContactPage() {
           100% { background-position: 220% center; }
         }
       `}</style>
-
-      <div className="absolute inset-0 contact-grid opacity-70" />
-      <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-24 left-1/2 h-[420px] w-[720px] -translate-x-1/2 rounded-full blur-[130px]" style={{ background: 'var(--orb-gold)' }} />
-        <div className="absolute bottom-0 left-0 h-[360px] w-[360px] rounded-full bg-cyan-500/7 blur-[100px]" />
-        <div className="absolute right-0 top-1/3 h-[300px] w-[300px] rounded-full bg-amber-400/7 blur-[100px]" />
-      </div>
 
       <div className="relative z-10 mx-auto w-11/12 max-w-6xl space-y-10">
         <div className="grid items-end gap-6 lg:grid-cols-[1fr_0.8fr]">
@@ -200,7 +194,7 @@ export default function ContactPage() {
 
           <motion.div
             {...fadeUp(0.12)}
-            className="rounded-2xl border border-white/8 bg-white/[0.03] p-4 backdrop-blur-xl"
+            className="glass-panel rounded-2xl p-4"
           >
             <div className="grid grid-cols-3 gap-3 text-center">
               {[
@@ -208,7 +202,7 @@ export default function ContactPage() {
                 { value: '5+', label: 'Core stack' },
                 { value: '100%', label: 'Focused' },
               ].map(item => (
-                <div key={item.label} className="rounded-xl border border-white/6 bg-[#0b1425] p-3">
+                <div key={item.label} className="glass-panel rounded-xl p-3">
                   <p className="font-display text-2xl font-black" style={{ color: 'var(--color-accent-strong)' }}>{item.value}</p>
                   <p className="font-mono-code text-[10px] text-slate-500">{item.label}</p>
                 </div>
@@ -219,7 +213,7 @@ export default function ContactPage() {
 
         <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
           <motion.div {...fadeUp(0.1)} className="space-y-6">
-            <div className="rounded-2xl border border-white/8 bg-[#0b1425]/90 p-5 shadow-2xl shadow-black/30">
+            <div className="glass-panel rounded-2xl p-5">
               <p className="font-mono-code mb-5 text-[11px] uppercase tracking-[0.28em] text-slate-500">
                 Direct channels
               </p>
@@ -251,7 +245,7 @@ export default function ContactPage() {
                             {item.value}
                           </a>
                         ) : (
-                          <p className="text-sm font-semibold text-slate-200">{item.value}</p>
+                          <p className="text-sm font-semibold text-[var(--color-text)]">{item.value}</p>
                         )}
                       </div>
                       {item.href && (
@@ -268,12 +262,12 @@ export default function ContactPage() {
                 <motion.div
                   key={card.title}
                   {...fadeUp(0.12 + index * 0.05)}
-                  className="rounded-xl border border-white/7 bg-white/[0.03] p-4"
+                  className="card-premium p-4"
                 >
                   <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl" style={{ background: 'color-mix(in srgb, var(--color-accent) 12%, transparent)', color: 'var(--color-accent-strong)' }}>
                     {card.icon}
                   </div>
-                  <h3 className="font-display text-lg font-bold text-white">{card.title}</h3>
+                  <h3 className="font-display text-lg font-bold text-[var(--color-text)]">{card.title}</h3>
                   <p className="mt-1 text-sm leading-6 text-slate-500">{card.text}</p>
                 </motion.div>
               ))}
@@ -315,7 +309,7 @@ export default function ContactPage() {
                   <p className="font-mono-code text-[11px] uppercase tracking-[0.28em]" style={{ color: 'var(--color-accent-strong)' }}>
                     Project inquiry
                   </p>
-                  <h3 className="mt-2 font-display text-3xl font-black text-white">Tell me what you need</h3>
+                  <h3 className="mt-2 font-display text-3xl font-black text-[var(--color-text)]">Tell me what you need</h3>
                 </div>
 
                 <input
@@ -372,7 +366,7 @@ export default function ContactPage() {
                       className="input-pro"
                     >
                       {projectTypes.map(type => (
-                        <option key={type} value={type} className="bg-[#0c1526] text-white">
+                        <option key={type} value={type}>
                           {type}
                         </option>
                       ))}
