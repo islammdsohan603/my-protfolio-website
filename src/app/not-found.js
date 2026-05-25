@@ -6,17 +6,18 @@ import { FaHome, FaArrowLeft } from 'react-icons/fa';
 
 export default function NotFound() {
   return (
-    <div className="min-h-screen bg-[#070d1a] flex flex-col items-center justify-center text-white px-6 overflow-hidden relative">
+    <div className="theme-surface min-h-screen flex flex-col items-center justify-center px-6 overflow-hidden relative">
       {/* Background elements */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-orange-600/10 rounded-full blur-[120px] pointer-events-none" />
-      <div className="absolute top-1/4 left-1/4 w-72 h-72 bg-blue-600/10 rounded-full blur-[100px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] rounded-full blur-[120px] pointer-events-none" style={{ background: 'var(--orb-gold)' }} />
+      <div className="absolute top-1/4 left-1/4 w-72 h-72 rounded-full blur-[100px] pointer-events-none" style={{ background: 'var(--orb-cyan)' }} />
       
       {/* Animated "404" */}
       <motion.h1 
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.8 }}
-        className="text-9xl md:text-[12rem] font-display font-black text-transparent bg-clip-text bg-linear-to-b from-orange-500 to-orange-800 tracking-tighter opacity-50 mb-4"
+        className="text-9xl md:text-[12rem] font-display font-black text-transparent bg-clip-text tracking-tighter opacity-60 mb-4"
+        style={{ backgroundImage: 'linear-gradient(to bottom, var(--color-accent-strong), var(--color-cyan))' }}
       >
         404
       </motion.h1>
@@ -28,7 +29,7 @@ export default function NotFound() {
         className="text-center relative z-10"
       >
         <h2 className="text-3xl md:text-5xl font-display font-bold mb-6">
-          Oops! You&apos;ve entered a <span className="text-orange-500">black hole</span>.
+          Oops! You&apos;ve entered a <span style={{ color: 'var(--color-accent-strong)' }}>black hole</span>.
         </h2>
         <p className="text-gray-400 text-lg md:text-xl max-w-lg mx-auto mb-10 leading-relaxed">
           The page you are looking for has been pulled into the void or never existed in this dimension. Let&apos;s get you back to safety.
@@ -42,7 +43,8 @@ export default function NotFound() {
           >
             <Link
               href="/"
-              className="flex items-center gap-2 px-8 py-4 bg-orange-500 hover:bg-orange-600 text-white rounded-2xl font-bold transition-colors duration-300 shadow-lg shadow-orange-500/20 group"
+              className="flex items-center gap-2 px-8 py-4 rounded-xl font-bold transition-all duration-300 group"
+              style={{ background: 'var(--color-accent)', color: 'var(--color-bg)', boxShadow: 'var(--shadow-premium)' }}
             >
               <FaHome className="group-hover:-translate-y-0.5 transition-transform" />
               Back to Home
@@ -55,7 +57,8 @@ export default function NotFound() {
           >
             <button
               onClick={() => window.history.back()}
-              className="flex items-center gap-2 px-8 py-4 bg-white/5 hover:bg-white/10 border border-white/10 rounded-2xl font-bold transition-all duration-300"
+              className="flex items-center gap-2 px-8 py-4 border rounded-xl font-bold transition-all duration-300"
+              style={{ background: 'var(--color-panel)', borderColor: 'var(--color-border)' }}
             >
               <FaArrowLeft className="text-sm" />
               Go Back
@@ -71,7 +74,8 @@ export default function NotFound() {
           rotate: [0, 10, 0]
         }}
         transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/4 right-1/4 text-orange-500/20 text-6xl hidden lg:block"
+        className="absolute top-1/4 right-1/4 text-6xl hidden lg:block"
+        style={{ color: 'color-mix(in srgb, var(--color-accent) 22%, transparent)' }}
       >
         ?
       </motion.div>

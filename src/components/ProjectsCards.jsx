@@ -8,12 +8,10 @@ import { FaGithub, FaArrowUpRightFromSquare, FaStar, FaCode } from 'react-icons/
 
 /* ── Per-card accent palette ── */
 const ACCENTS = [
-  { color: '#f97316', glow: 'rgba(249,115,22,0.20)', soft: 'rgba(249,115,22,0.07)', border: 'rgba(249,115,22,0.28)' },
+  { color: '#d6a84f', glow: 'rgba(214,168,79,0.20)', soft: 'rgba(214,168,79,0.08)', border: 'rgba(214,168,79,0.30)' },
   { color: '#38bdf8', glow: 'rgba(56,189,248,0.20)',  soft: 'rgba(56,189,248,0.07)',  border: 'rgba(56,189,248,0.28)'  },
-  { color: '#a78bfa', glow: 'rgba(167,139,250,0.20)', soft: 'rgba(167,139,250,0.07)', border: 'rgba(167,139,250,0.28)' },
-  { color: '#34d399', glow: 'rgba(52,211,153,0.20)',  soft: 'rgba(52,211,153,0.07)',  border: 'rgba(52,211,153,0.28)'  },
-  { color: '#f472b6', glow: 'rgba(244,114,182,0.20)', soft: 'rgba(244,114,182,0.07)', border: 'rgba(244,114,182,0.28)' },
-  { color: '#fbbf24', glow: 'rgba(251,191,36,0.20)',  soft: 'rgba(251,191,36,0.07)',  border: 'rgba(251,191,36,0.28)'  },
+  { color: '#2dd4bf', glow: 'rgba(45,212,191,0.20)', soft: 'rgba(45,212,191,0.07)', border: 'rgba(45,212,191,0.28)' },
+  { color: '#93c5fd', glow: 'rgba(147,197,253,0.20)', soft: 'rgba(147,197,253,0.07)', border: 'rgba(147,197,253,0.28)' },
 ];
 
 const ProjectsCards = ({ project, index = 0 }) => {
@@ -32,7 +30,7 @@ const ProjectsCards = ({ project, index = 0 }) => {
       onHoverEnd={() => setHovered(false)}
       className="relative flex flex-col rounded-2xl overflow-hidden"
       style={{
-        background: 'linear-gradient(160deg,#0d1628 0%,#080c1a 100%)',
+        background: 'linear-gradient(160deg,var(--color-panel-strong) 0%,var(--color-bg-soft) 100%)',
         border: `1px solid ${hovered ? a.border : 'rgba(255,255,255,0.06)'}`,
         boxShadow: hovered
           ? `0 0 48px ${a.glow}, 0 12px 40px rgba(0,0,0,0.55)`
@@ -49,7 +47,7 @@ const ProjectsCards = ({ project, index = 0 }) => {
       />
 
       {/* ── Image block ── */}
-      <div className="relative w-full h-52 overflow-hidden shrink-0 bg-[#070b16]">
+      <div className="relative w-full h-52 overflow-hidden shrink-0" style={{ background: 'var(--color-bg-soft)' }}>
         {image ? (
           <>
             <Image
@@ -63,7 +61,7 @@ const ProjectsCards = ({ project, index = 0 }) => {
             <div
               className="absolute inset-0"
               style={{
-                background: `linear-gradient(to bottom,${a.soft},rgba(7,11,22,0.65))`,
+                background: `linear-gradient(to bottom,${a.soft},color-mix(in srgb, var(--color-bg) 72%, transparent))`,
                 opacity: hovered ? 0.8 : 0.5,
                 transition: 'opacity .4s',
               }}
@@ -100,7 +98,7 @@ const ProjectsCards = ({ project, index = 0 }) => {
           style={{
             fontSize: '5rem',
             color: `${a.color}12`,
-            fontFamily: 'Syne,sans-serif',
+            fontFamily: 'Poppins,sans-serif',
             opacity: hovered ? 1 : 0.6,
             transition: 'opacity .3s',
           }}
@@ -110,7 +108,7 @@ const ProjectsCards = ({ project, index = 0 }) => {
       </div>
 
       {/* ── Body ── */}
-      <div className="flex flex-col flex-1 px-6 pt-5 pb-6 gap-3.5">
+      <div className="flex flex-col flex-1 px-5 pt-4 pb-5 gap-3">
 
         {/* Tech chips */}
         {tech?.length > 0 && (
@@ -139,8 +137,8 @@ const ProjectsCards = ({ project, index = 0 }) => {
         <h3
           className="font-black text-[1.15rem] leading-snug"
           style={{
-            fontFamily: 'Syne,sans-serif',
-            color: hovered ? a.color : '#f1f5f9',
+            fontFamily: 'Poppins,sans-serif',
+            color: hovered ? a.color : 'var(--color-text)',
             transition: 'color .3s',
           }}
         >
@@ -148,7 +146,7 @@ const ProjectsCards = ({ project, index = 0 }) => {
         </h3>
 
         {/* Description */}
-        <p className="text-gray-500 text-sm leading-relaxed flex-1">
+        <p className="theme-muted text-sm leading-relaxed flex-1">
           {description}
         </p>
 
@@ -170,7 +168,7 @@ const ProjectsCards = ({ project, index = 0 }) => {
             className="flex-1 text-center py-2.5 text-sm font-bold rounded-xl"
             style={{
               background: hovered ? a.color : a.soft,
-              color: hovered ? '#fff' : a.color,
+              color: hovered ? 'var(--color-bg)' : a.color,
               border: `1px solid ${a.border}`,
               transition: 'background .25s, color .25s',
             }}

@@ -1,22 +1,10 @@
-import { Outfit, Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import SmoothScroll from "@/providers/SmoothScroll";
+import { ThemeProvider } from "@/providers/ThemeProvider";
 
 import SplashScreen from "@/components/SplashScreen";
 import Script from "next/script";
-
-const outfit = Outfit({
-  variable: "--font-outfit",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const inter = Inter({
-  variable: "--font-inter",
-  subsets: ["latin"],
-  display: "swap",
-});
 
 export const metadata = {
   title: {
@@ -112,7 +100,7 @@ const jsonLd = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en" className={`${outfit.variable} ${inter.variable}`}>
+    <html lang="en" suppressHydrationWarning>
       <body className="antialiased font-inter">
         <Script
           id="json-ld"
@@ -134,13 +122,15 @@ export default function RootLayout({ children }) {
             gtag('config', 'G-SJKJTN0MP0');
           `}
         </Script>
-        <SmoothScroll>
-          <SplashScreen />
+        <ThemeProvider>
+          <SmoothScroll>
+            <SplashScreen />
 
-          <Navbar />
-          {children}
+            <Navbar />
+            {children}
 
-        </SmoothScroll>
+          </SmoothScroll>
+        </ThemeProvider>
       </body>
     </html>
   );

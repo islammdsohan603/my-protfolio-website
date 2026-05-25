@@ -11,8 +11,12 @@ export default function ScrollProgressBar() {
 
   return (
     <motion.div
-      style={{ scaleX }}
-      className="fixed top-0 left-0 right-0 h-1 bg-linear-to-r from-orange-500 to-amber-400 origin-left z-[9999] shadow-[0_0_10px_rgba(249,115,22,0.8)]"
+      className="fixed top-0 left-0 right-0 h-1 origin-left z-[9999]"
+      style={{
+        scaleX,
+        background: 'linear-gradient(90deg, var(--color-accent), var(--color-cyan))',
+        boxShadow: '0 0 12px color-mix(in srgb, var(--color-accent) 55%, transparent)',
+      }}
     />
   );
 }

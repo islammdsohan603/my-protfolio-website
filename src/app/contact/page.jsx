@@ -26,7 +26,7 @@ const contactInfo = [
     label: 'Email',
     value: CONTACT_EMAIL,
     href: `mailto:${CONTACT_EMAIL}`,
-    color: '#f97316',
+    color: '#d6a84f',
   },
   {
     icon: <FaPhone />,
@@ -143,21 +143,20 @@ export default function ContactPage() {
   return (
     <section
       id="contact"
-      className="relative overflow-hidden bg-[#040710] py-16 text-white md:py-28"
-      style={{ fontFamily: "'DM Sans', sans-serif" }}
+      className="theme-surface relative overflow-hidden py-12 md:py-20"
+      style={{ fontFamily: "'Poppins', sans-serif" }}
     >
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Syne:wght@700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
-        .font-display { font-family: 'Syne', sans-serif; }
-        .font-mono-code { font-family: 'JetBrains Mono', monospace; }
+        .font-display { font-family: 'Poppins', sans-serif; }
+        .font-mono-code { font-family: 'Poppins', sans-serif; }
         .contact-grid {
           background-image:
-            linear-gradient(rgba(249,115,22,0.04) 1px, transparent 1px),
-            linear-gradient(90deg, rgba(249,115,22,0.04) 1px, transparent 1px);
+            linear-gradient(var(--grid-line-a) 1px, transparent 1px),
+            linear-gradient(90deg, var(--grid-line-b) 1px, transparent 1px);
           background-size: 52px 52px;
         }
         .contact-shine {
-          background: linear-gradient(90deg, #f97316 0%, #fbbf24 35%, #ffffff 50%, #fbbf24 65%, #f97316 100%);
+          background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-strong) 35%, var(--color-text) 50%, var(--color-cyan) 75%, var(--color-accent) 100%);
           background-size: 220% auto;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
@@ -171,17 +170,17 @@ export default function ContactPage() {
 
       <div className="absolute inset-0 contact-grid opacity-70" />
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute -top-24 left-1/2 h-[420px] w-[720px] -translate-x-1/2 rounded-full bg-orange-500/10 blur-[130px]" />
+        <div className="absolute -top-24 left-1/2 h-[420px] w-[720px] -translate-x-1/2 rounded-full blur-[130px]" style={{ background: 'var(--orb-gold)' }} />
         <div className="absolute bottom-0 left-0 h-[360px] w-[360px] rounded-full bg-cyan-500/7 blur-[100px]" />
         <div className="absolute right-0 top-1/3 h-[300px] w-[300px] rounded-full bg-amber-400/7 blur-[100px]" />
       </div>
 
-      <div className="relative z-10 mx-auto w-11/12 max-w-6xl space-y-14">
-        <div className="grid items-end gap-8 lg:grid-cols-[1fr_0.8fr]">
+      <div className="relative z-10 mx-auto w-11/12 max-w-6xl space-y-10">
+        <div className="grid items-end gap-6 lg:grid-cols-[1fr_0.8fr]">
           <motion.div {...fadeUp(0)} className="space-y-5">
-            <div className="inline-flex items-center gap-2 rounded-full border border-orange-500/20 bg-orange-500/5 px-4 py-2">
+            <div className="inline-flex items-center gap-2 rounded-full border px-4 py-2" style={{ borderColor: 'var(--color-border-strong)', background: 'color-mix(in srgb, var(--color-accent) 8%, transparent)' }}>
               <span className="h-2 w-2 rounded-full bg-green-400 shadow-[0_0_18px_rgba(74,222,128,0.8)]" />
-              <span className="font-mono-code text-[11px] uppercase tracking-[0.28em] text-orange-300">
+              <span className="font-mono-code text-[11px] uppercase tracking-[0.28em]" style={{ color: 'var(--color-accent-strong)' }}>
                 Ready for serious opportunities
               </span>
             </div>
@@ -201,7 +200,7 @@ export default function ContactPage() {
 
           <motion.div
             {...fadeUp(0.12)}
-            className="rounded-3xl border border-white/8 bg-white/[0.03] p-5 backdrop-blur-xl"
+            className="rounded-2xl border border-white/8 bg-white/[0.03] p-4 backdrop-blur-xl"
           >
             <div className="grid grid-cols-3 gap-3 text-center">
               {[
@@ -209,8 +208,8 @@ export default function ContactPage() {
                 { value: '5+', label: 'Core stack' },
                 { value: '100%', label: 'Focused' },
               ].map(item => (
-                <div key={item.label} className="rounded-2xl border border-white/6 bg-[#0b1425] p-4">
-                  <p className="font-display text-2xl font-black text-orange-400">{item.value}</p>
+                <div key={item.label} className="rounded-xl border border-white/6 bg-[#0b1425] p-3">
+                  <p className="font-display text-2xl font-black" style={{ color: 'var(--color-accent-strong)' }}>{item.value}</p>
                   <p className="font-mono-code text-[10px] text-slate-500">{item.label}</p>
                 </div>
               ))}
@@ -218,9 +217,9 @@ export default function ContactPage() {
           </motion.div>
         </div>
 
-        <div className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr]">
+        <div className="grid gap-6 lg:grid-cols-[0.9fr_1.1fr]">
           <motion.div {...fadeUp(0.1)} className="space-y-6">
-            <div className="rounded-3xl border border-white/8 bg-[#0b1425]/90 p-6 shadow-2xl shadow-black/30">
+            <div className="rounded-2xl border border-white/8 bg-[#0b1425]/90 p-5 shadow-2xl shadow-black/30">
               <p className="font-mono-code mb-5 text-[11px] uppercase tracking-[0.28em] text-slate-500">
                 Direct channels
               </p>
@@ -228,7 +227,8 @@ export default function ContactPage() {
                 {contactInfo.map(item => (
                   <div
                     key={item.label}
-                    className="group rounded-2xl border border-white/7 bg-white/[0.03] p-4 transition-all duration-300 hover:-translate-y-1 hover:border-orange-500/25 hover:bg-orange-500/[0.04]"
+                    className="group rounded-xl border p-3.5 transition-all duration-300 hover:-translate-y-1"
+                    style={{ borderColor: 'var(--color-border)', background: 'var(--color-panel)' }}
                   >
                     <div className="flex items-center gap-4">
                       <div
@@ -246,7 +246,7 @@ export default function ContactPage() {
                         {item.href ? (
                           <a
                             href={item.href}
-                            className="break-all text-sm font-semibold text-slate-200 transition-colors group-hover:text-orange-300"
+                            className="break-all text-sm font-semibold transition-colors group-hover:text-[var(--color-accent-strong)]"
                           >
                             {item.value}
                           </a>
@@ -255,7 +255,7 @@ export default function ContactPage() {
                         )}
                       </div>
                       {item.href && (
-                        <FaArrowRight className="text-xs text-slate-600 transition group-hover:translate-x-1 group-hover:text-orange-400" />
+                        <FaArrowRight className="text-xs transition group-hover:translate-x-1 group-hover:text-[var(--color-accent-strong)]" style={{ color: 'var(--color-faint)' }} />
                       )}
                     </div>
                   </div>
@@ -268,9 +268,9 @@ export default function ContactPage() {
                 <motion.div
                   key={card.title}
                   {...fadeUp(0.12 + index * 0.05)}
-                  className="rounded-2xl border border-white/7 bg-white/[0.03] p-5"
+                  className="rounded-xl border border-white/7 bg-white/[0.03] p-4"
                 >
-                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl bg-orange-500/10 text-orange-400">
+                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl" style={{ background: 'color-mix(in srgb, var(--color-accent) 12%, transparent)', color: 'var(--color-accent-strong)' }}>
                     {card.icon}
                   </div>
                   <h3 className="font-display text-lg font-bold text-white">{card.title}</h3>
@@ -290,7 +290,8 @@ export default function ContactPage() {
                     href={item.href}
                     target="_blank"
                     rel="noreferrer"
-                    className="inline-flex items-center gap-2 rounded-xl border border-white/8 bg-white/[0.03] px-4 py-3 text-sm font-semibold text-slate-400 transition-all duration-300 hover:-translate-y-1 hover:border-orange-500/30 hover:bg-orange-500/10 hover:text-orange-300"
+                    className="inline-flex items-center gap-2 rounded-xl border px-4 py-3 text-sm font-semibold transition-all duration-300 hover:-translate-y-1 hover:text-[var(--color-accent-strong)]"
+                    style={{ borderColor: 'var(--color-border)', background: 'var(--color-panel)', color: 'var(--color-muted)' }}
                   >
                     {item.icon}
                     {item.label}
@@ -303,14 +304,15 @@ export default function ContactPage() {
           <motion.div {...fadeUp(0.18)}>
             <form
               onSubmit={handleSubmit}
-              className="relative overflow-hidden rounded-[2rem] border border-orange-500/18 bg-[#0c1526] p-5 shadow-2xl shadow-orange-950/20 md:p-8"
+              className="relative overflow-hidden rounded-2xl border p-5 shadow-2xl md:p-6"
+              style={{ borderColor: 'var(--color-border-strong)', background: 'var(--color-panel-strong)', boxShadow: 'var(--shadow-premium)' }}
             >
-              <div className="absolute inset-x-0 top-0 h-px bg-linear-to-r from-transparent via-orange-400/70 to-transparent" />
-              <div className="absolute -right-16 -top-16 h-44 w-44 rounded-full bg-orange-500/10 blur-3xl" />
+              <div className="absolute inset-x-0 top-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, var(--color-accent), transparent)' }} />
+              <div className="absolute -right-16 -top-16 h-44 w-44 rounded-full blur-3xl" style={{ background: 'var(--orb-gold)' }} />
 
-              <div className="relative space-y-5">
+              <div className="relative space-y-4">
                 <div>
-                  <p className="font-mono-code text-[11px] uppercase tracking-[0.28em] text-orange-300">
+                  <p className="font-mono-code text-[11px] uppercase tracking-[0.28em]" style={{ color: 'var(--color-accent-strong)' }}>
                     Project inquiry
                   </p>
                   <h3 className="mt-2 font-display text-3xl font-black text-white">Tell me what you need</h3>
@@ -405,11 +407,15 @@ export default function ContactPage() {
                   <button
                     type="submit"
                     disabled={status === 'loading' || status === 'success'}
-                    className={`group inline-flex flex-1 items-center justify-center gap-2 rounded-xl px-6 py-4 text-sm font-black transition-all duration-300 ${
+                    className={`group inline-flex flex-1 items-center justify-center gap-2 rounded-xl px-5 py-3.5 text-sm font-black transition-all duration-300 ${
                       status === 'success'
                         ? 'bg-green-500 text-white'
-                        : 'bg-orange-500 text-white shadow-xl shadow-orange-500/25 hover:-translate-y-1 hover:bg-orange-400 hover:shadow-orange-500/40'
+                        : 'text-white shadow-xl hover:-translate-y-1'
                     } disabled:cursor-not-allowed disabled:opacity-70`}
+                    style={status === 'success' ? undefined : {
+                      background: 'var(--color-accent)',
+                      boxShadow: '0 18px 40px color-mix(in srgb, var(--color-accent) 25%, transparent)',
+                    }}
                   >
                     {status === 'loading' && (
                       <span className="h-4 w-4 rounded-full border-2 border-white/30 border-t-white animate-spin" />
@@ -425,7 +431,7 @@ export default function ContactPage() {
 
                   <a
                     href={`tel:${CONTACT_PHONE_LINK}`}
-                    className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 px-6 py-4 text-sm font-bold text-slate-300 transition-all duration-300 hover:border-green-500/30 hover:bg-green-500/10 hover:text-green-300"
+                    className="inline-flex items-center justify-center gap-2 rounded-xl border border-white/10 px-5 py-3.5 text-sm font-bold text-slate-300 transition-all duration-300 hover:border-green-500/30 hover:bg-green-500/10 hover:text-green-300"
                   >
                     <FaPhone className="text-xs" />
                     Call now

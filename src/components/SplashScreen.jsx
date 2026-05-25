@@ -36,13 +36,13 @@ export default function SplashScreen() {
             className="absolute inset-0 opacity-[0.03]"
             style={{
               backgroundImage:
-                'linear-gradient(#f97316 1px, transparent 1px), linear-gradient(90deg, #f97316 1px, transparent 1px)',
+                'linear-gradient(var(--color-accent) 1px, transparent 1px), linear-gradient(90deg, var(--color-cyan) 1px, transparent 1px)',
               backgroundSize: '40px 40px',
             }}
           />
 
           {/* Premium Ambient Blobs */}
-          <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-orange-600/20 rounded-full blur-[120px] pointer-events-none" />
+          <div className="absolute top-1/4 left-1/4 w-96 h-96 rounded-full blur-[120px] pointer-events-none" style={{ background: 'var(--orb-gold)' }} />
           <div className="absolute bottom-1/4 right-1/4 w-72 h-72 bg-blue-600/10 rounded-full blur-[120px] pointer-events-none" />
 
           {/* Central Logo / Name Animation */}
@@ -66,7 +66,7 @@ export default function SplashScreen() {
                 transition={{ duration: 0.8, delay: 0.4, ease: "easeOut" }}
                 className="text-transparent bg-clip-text ml-4 md:ml-6"
                 style={{
-                  backgroundImage: 'linear-gradient(90deg, #f97316, #fb923c)',
+                  backgroundImage: 'linear-gradient(90deg, var(--color-accent), var(--color-cyan))',
                 }}
               >
                 SOHAN
@@ -78,7 +78,8 @@ export default function SplashScreen() {
               initial={{ width: 0, opacity: 0 }}
               animate={{ width: "100%", opacity: 1 }}
               transition={{ duration: 1, delay: 1, ease: "easeInOut" }}
-              className="h-[2px] bg-linear-to-r from-transparent via-orange-500 to-transparent mt-6 rounded-full"
+              className="h-[2px] mt-6 rounded-full"
+              style={{ background: 'linear-gradient(90deg, transparent, var(--color-accent), transparent)' }}
             />
             
             {/* Minimalist Loading Indicator */}
@@ -89,8 +90,8 @@ export default function SplashScreen() {
               className="mt-10 flex items-center gap-3"
             >
               <span className="relative flex h-2.5 w-2.5">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75" />
-                <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-orange-500" />
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full opacity-75" style={{ background: 'var(--color-accent)' }} />
+                <span className="relative inline-flex h-2.5 w-2.5 rounded-full" style={{ background: 'var(--color-accent)' }} />
               </span>
               <span className="text-gray-400 text-xs md:text-sm tracking-[0.3em] uppercase font-medium">
                 Crafting Experience

@@ -153,18 +153,18 @@ function buildEmail({ data, ip, userAgent, referer }) {
     <div style="margin:0;padding:32px;background:#07111f;font-family:Arial,Helvetica,sans-serif;color:#e5e7eb;">
       <div style="max-width:680px;margin:0 auto;background:#0d1728;border:1px solid rgba(255,255,255,0.08);border-radius:24px;overflow:hidden;">
         <div style="padding:28px 32px;background:linear-gradient(135deg,rgba(249,115,22,0.22),rgba(56,189,248,0.08));border-bottom:1px solid rgba(255,255,255,0.08);">
-          <p style="margin:0 0 8px;color:#fb923c;font-size:12px;letter-spacing:3px;text-transform:uppercase;">Portfolio Lead</p>
+          <p style="margin:0 0 8px;color:#d6a84f;font-size:12px;letter-spacing:3px;text-transform:uppercase;">Portfolio Lead</p>
           <h1 style="margin:0;color:#ffffff;font-size:28px;line-height:1.2;">${safe.subject}</h1>
         </div>
         <div style="padding:30px 32px;">
           <table style="width:100%;border-collapse:collapse;margin-bottom:26px;">
             <tr><td style="padding:10px 0;color:#94a3b8;width:140px;">Name</td><td style="padding:10px 0;color:#fff;font-weight:700;">${safe.name}</td></tr>
-            <tr><td style="padding:10px 0;color:#94a3b8;">Email</td><td style="padding:10px 0;"><a href="mailto:${safe.email}" style="color:#fb923c;">${safe.email}</a></td></tr>
+            <tr><td style="padding:10px 0;color:#94a3b8;">Email</td><td style="padding:10px 0;"><a href="mailto:${safe.email}" style="color:#d6a84f;">${safe.email}</a></td></tr>
             <tr><td style="padding:10px 0;color:#94a3b8;">Phone</td><td style="padding:10px 0;color:#fff;">${safe.phone}</td></tr>
             <tr><td style="padding:10px 0;color:#94a3b8;">Project type</td><td style="padding:10px 0;color:#fff;">${safe.projectType}</td></tr>
           </table>
           <div style="padding:22px;border:1px solid rgba(249,115,22,0.18);background:rgba(249,115,22,0.06);border-radius:18px;">
-            <p style="margin:0 0 10px;color:#fb923c;font-size:12px;letter-spacing:2px;text-transform:uppercase;">Message</p>
+            <p style="margin:0 0 10px;color:#d6a84f;font-size:12px;letter-spacing:2px;text-transform:uppercase;">Message</p>
             <p style="margin:0;color:#f8fafc;font-size:16px;line-height:1.8;">${safe.message}</p>
           </div>
           <div style="margin-top:24px;padding-top:18px;border-top:1px solid rgba(255,255,255,0.08);font-size:12px;color:#64748b;line-height:1.7;">

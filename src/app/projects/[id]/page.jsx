@@ -9,12 +9,10 @@ import projectsData from '@/data/projects.json';
 
 /* ── Accent palette (matches ProjectsCards) ── */
 const ACCENTS = [
-  { color: '#f97316', glow: 'rgba(249,115,22,0.20)', soft: 'rgba(249,115,22,0.07)', border: 'rgba(249,115,22,0.28)' },
+  { color: '#d6a84f', glow: 'rgba(214,168,79,0.20)', soft: 'rgba(214,168,79,0.08)', border: 'rgba(214,168,79,0.30)' },
   { color: '#38bdf8', glow: 'rgba(56,189,248,0.20)',  soft: 'rgba(56,189,248,0.07)',  border: 'rgba(56,189,248,0.28)'  },
-  { color: '#a78bfa', glow: 'rgba(167,139,250,0.20)', soft: 'rgba(167,139,250,0.07)', border: 'rgba(167,139,250,0.28)' },
-  { color: '#34d399', glow: 'rgba(52,211,153,0.20)',  soft: 'rgba(52,211,153,0.07)',  border: 'rgba(52,211,153,0.28)'  },
-  { color: '#f472b6', glow: 'rgba(244,114,182,0.20)', soft: 'rgba(244,114,182,0.07)', border: 'rgba(244,114,182,0.28)' },
-  { color: '#fbbf24', glow: 'rgba(251,191,36,0.20)',  soft: 'rgba(251,191,36,0.07)',  border: 'rgba(251,191,36,0.28)'  },
+  { color: '#2dd4bf', glow: 'rgba(45,212,191,0.20)', soft: 'rgba(45,212,191,0.07)', border: 'rgba(45,212,191,0.28)' },
+  { color: '#93c5fd', glow: 'rgba(147,197,253,0.20)', soft: 'rgba(147,197,253,0.07)', border: 'rgba(147,197,253,0.28)' },
 ];
 
 export default function ProjectDetails() {
@@ -31,17 +29,16 @@ export default function ProjectDetails() {
 
   return (
     <main
-      className="bg-[#050810] text-white min-h-screen relative overflow-hidden"
-      style={{ fontFamily: "'DM Sans', sans-serif" }}
+      className="theme-surface min-h-screen relative overflow-hidden"
+      style={{ fontFamily: "'Poppins', sans-serif" }}
     >
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Syne:wght@700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
-        .font-display { font-family: 'Syne', sans-serif; }
-        .font-mono    { font-family: 'JetBrains Mono', monospace; }
+        .font-display { font-family: 'Poppins', sans-serif; }
+        .font-mono    { font-family: 'Poppins', sans-serif; }
 
         /* Dot grid */
         .dot-grid {
-          background-image: radial-gradient(circle, rgba(249,115,22,0.05) 1px, transparent 1px);
+          background-image: radial-gradient(circle, var(--grid-line-a) 1px, transparent 1px);
           background-size: 28px 28px;
         }
 
@@ -88,7 +85,7 @@ export default function ProjectDetails() {
       {/* ════════════════════════════════
           HERO IMAGE BANNER
       ════════════════════════════════ */}
-      <div className="relative w-full h-[55vh] min-h-[360px] max-h-[540px] overflow-hidden scanlines">
+      <div className="relative w-full h-[48vh] min-h-[320px] max-h-[480px] overflow-hidden scanlines">
         {image ? (
           <>
             <Image
@@ -101,11 +98,11 @@ export default function ProjectDetails() {
               style={{ filter: 'brightness(0.45) saturate(1.1)' }}
             />
             {/* Layered gradient overlays */}
-            <div className="absolute inset-0" style={{ background: `linear-gradient(to bottom, transparent 20%, #050810 100%)` }} />
+            <div className="absolute inset-0" style={{ background: `linear-gradient(to bottom, transparent 20%, var(--color-bg) 100%)` }} />
             <div className="absolute inset-0" style={{ background: `linear-gradient(135deg, ${a.soft} 0%, transparent 60%)` }} />
           </>
         ) : (
-          <div className="absolute inset-0 flex items-center justify-center" style={{ background: `linear-gradient(135deg, #0d1628, #050810)` }}>
+          <div className="absolute inset-0 flex items-center justify-center" style={{ background: `linear-gradient(135deg, var(--color-panel-strong), var(--color-bg))` }}>
             <FaCode className="text-8xl opacity-10" style={{ color: a.color }} />
           </div>
         )}
@@ -120,7 +117,7 @@ export default function ProjectDetails() {
           <Link
             href="/projects"
             className="inline-flex items-center gap-2.5 text-sm font-semibold text-white/70 hover:text-white transition-colors duration-200 group"
-            style={{ fontFamily: 'JetBrains Mono, monospace' }}
+            style={{ fontFamily: 'Poppins, sans-serif' }}
           >
             <motion.span
               animate={{ x: [0, -4, 0] }}
@@ -135,7 +132,7 @@ export default function ProjectDetails() {
         {/* Project index watermark on image */}
         <div
           className="absolute bottom-8 right-8 font-black leading-none select-none pointer-events-none z-10"
-          style={{ fontSize: '8rem', color: `${a.color}10`, fontFamily: 'Syne,sans-serif' }}
+          style={{ fontSize: '8rem', color: `${a.color}10`, fontFamily: 'Poppins,sans-serif' }}
         >
           {String(projectIndex + 1).padStart(2, '0')}
         </div>
@@ -144,16 +141,16 @@ export default function ProjectDetails() {
       {/* ════════════════════════════════
           MAIN CONTENT
       ════════════════════════════════ */}
-      <div className="relative z-10 w-11/12 max-w-3xl mx-auto -mt-16 pb-28 space-y-10">
+      <div className="relative z-10 w-11/12 max-w-3xl mx-auto -mt-12 pb-20 space-y-7">
 
         {/* ── Header card ── */}
         <motion.div
           initial={{ opacity: 0, y: 32 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, ease: [0.22, 1, 0.36, 1] }}
-          className="relative rounded-2xl p-8 border overflow-hidden"
+          className="relative rounded-2xl p-6 border overflow-hidden"
           style={{
-            background: 'linear-gradient(160deg, #0d1628 0%, #080c1a 100%)',
+            background: 'linear-gradient(160deg, var(--color-panel-strong) 0%, var(--color-bg-soft) 100%)',
             borderColor: a.border,
             boxShadow: `0 0 60px ${a.glow}, 0 8px 32px rgba(0,0,0,0.6)`,
           }}
@@ -161,7 +158,7 @@ export default function ProjectDetails() {
           {/* Glow top line */}
           <div className="absolute top-0 left-0 right-0 h-px" style={{ background: `linear-gradient(90deg, transparent, ${a.color}, transparent)` }} />
 
-          <div className="space-y-5">
+          <div className="space-y-4">
             {/* Badges row */}
             <div className="flex flex-wrap items-center gap-3">
               {featured && (
@@ -209,7 +206,7 @@ export default function ProjectDetails() {
           initial={{ opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.15 }}
-          className="space-y-5"
+          className="space-y-4"
         >
           <div className="flex items-center gap-3">
             <FaLayerGroup className="text-sm" style={{ color: a.color }} />
@@ -230,7 +227,7 @@ export default function ProjectDetails() {
                   background: a.soft,
                   color: a.color,
                   border: `1px solid ${a.border}`,
-                  fontFamily: 'JetBrains Mono, monospace',
+                  fontFamily: 'Poppins, sans-serif',
                 }}
               >
                 {t}
@@ -311,12 +308,12 @@ export default function ProjectDetails() {
           transition={{ duration: 0.55, delay: 0.45 }}
           className="relative rounded-2xl border overflow-hidden"
           style={{
-            background: 'linear-gradient(135deg, #0d1628 0%, #080c1a 100%)',
+            background: 'linear-gradient(135deg, var(--color-panel-strong) 0%, var(--color-bg-soft) 100%)',
             borderColor: 'rgba(255,255,255,0.06)',
           }}
         >
           <div className="absolute top-0 left-0 right-0 h-px" style={{ background: `linear-gradient(90deg, transparent, ${a.color}40, transparent)` }} />
-          <div className="p-6 flex items-center justify-between gap-4 flex-wrap">
+          <div className="p-5 flex items-center justify-between gap-4 flex-wrap">
             <div>
               <p className="font-mono text-[11px] text-gray-600 uppercase tracking-widest mb-1">Want to see more?</p>
               <p className="text-sm text-gray-300 font-semibold">Check out all my projects on GitHub</p>
@@ -355,7 +352,7 @@ export default function ProjectDetails() {
                 href={`/projects/${proj.id}`}
                 className={`group relative rounded-xl border overflow-hidden p-4 transition-all duration-250 ${dir === 'next' ? 'text-right' : 'text-left'}`}
                 style={{
-                  background: 'linear-gradient(135deg,#0d1628,#080c1a)',
+                  background: 'linear-gradient(135deg,var(--color-panel-strong),var(--color-bg-soft))',
                   borderColor: 'rgba(255,255,255,0.06)',
                 }}
                 onMouseEnter={e => { e.currentTarget.style.borderColor = pa.border; }}

@@ -15,8 +15,8 @@ const skillGroups = [
   {
     category: 'Frontend',
     tagline: 'What users see & feel',
-    accentColor: '#f97316',
-    glowColor: 'rgba(249,115,22,0.15)',
+    accentColor: '#d6a84f',
+    glowColor: 'rgba(214,168,79,0.16)',
     id: 'frontend',
     skills: [
       { name: 'HTML5',       icon: <FaHtml5 />,       level: 95, tag: 'Markup'    },
@@ -92,9 +92,9 @@ function SkillCard({ skill, color, glowColor, index }) {
       whileHover={{ y: -6, scale: 1.02 }}
       onHoverStart={() => setHovered(true)}
       onHoverEnd={() => setHovered(false)}
-      className="relative rounded-2xl p-5 border border-white/5 cursor-default overflow-hidden transition-all duration-300 group"
+      className="relative rounded-xl p-4 border border-white/5 cursor-default overflow-hidden transition-all duration-300 group"
       style={{
-        background: 'linear-gradient(135deg, #0d1526 0%, #080d1a 100%)',
+        background: 'linear-gradient(135deg, var(--color-panel-strong) 0%, var(--color-bg-soft) 100%)',
         boxShadow: hovered ? `0 0 30px ${glowColor}, 0 4px 24px rgba(0,0,0,0.4)` : '0 2px 12px rgba(0,0,0,0.3)',
         borderColor: hovered ? `${color}35` : 'rgba(255,255,255,0.05)',
       }}
@@ -108,7 +108,7 @@ function SkillCard({ skill, color, glowColor, index }) {
       {/* Background number watermark */}
       <span
         className="absolute bottom-2 right-3 font-black text-6xl leading-none select-none pointer-events-none transition-opacity duration-300"
-        style={{ color: `${color}08`, fontFamily: 'Syne, sans-serif', opacity: hovered ? 1 : 0.5 }}
+        style={{ color: `${color}08`, fontFamily: 'Poppins, sans-serif', opacity: hovered ? 1 : 0.5 }}
       >
         {skill.level}
       </span>
@@ -174,17 +174,16 @@ export default function SkillsPages() {
     <section
       ref={sectionRef}
       id="skills"
-      className="relative bg-[#050810] text-white py-12 md:py-28 overflow-hidden"
-      style={{ fontFamily: "'DM Sans', sans-serif" }}
+      className="theme-surface relative py-12 md:py-20 overflow-hidden"
+      style={{ fontFamily: "'Poppins', sans-serif" }}
     >
       <style>{`
-        @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800;900&family=Syne:wght@700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap');
-        .font-display  { font-family: 'Syne', sans-serif; }
-        .font-mono     { font-family: 'JetBrains Mono', monospace; }
+        .font-display  { font-family: 'Poppins', sans-serif; }
+        .font-mono     { font-family: 'Poppins', sans-serif; }
 
         /* Dot grid */
         .dot-grid {
-          background-image: radial-gradient(circle, rgba(249,115,22,0.07) 1px, transparent 1px);
+          background-image: radial-gradient(circle, var(--grid-line-a) 1px, transparent 1px);
           background-size: 28px 28px;
         }
 
@@ -194,7 +193,7 @@ export default function SkillsPages() {
           100% { background-position:  200% center; }
         }
         .shimmer-text {
-          background: linear-gradient(90deg, #f97316 0%, #fbbf24 30%, #f97316 50%, #fbbf24 70%, #f97316 100%);
+          background: linear-gradient(90deg, var(--color-accent) 0%, var(--color-accent-strong) 35%, var(--color-cyan) 70%, var(--color-accent) 100%);
           background-size: 200% auto;
           -webkit-background-clip: text;
           -webkit-text-fill-color: transparent;
@@ -240,7 +239,7 @@ export default function SkillsPages() {
         />
       </div>
 
-      <div className="relative z-10 w-11/12 max-w-5xl mx-auto space-y-20">
+      <div className="relative z-10 w-11/12 max-w-5xl mx-auto space-y-14">
 
         {/* ═══════════════════════════
             HEADER
@@ -250,10 +249,11 @@ export default function SkillsPages() {
             initial={{ opacity: 0, y: -10 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false }}
-            className="inline-flex items-center gap-2 border border-orange-500/20 bg-orange-500/5 rounded-full px-4 py-1.5"
+            className="inline-flex items-center gap-2 border rounded-full px-4 py-1.5"
+            style={{ borderColor: 'var(--color-border-strong)', background: 'color-mix(in srgb, var(--color-accent) 8%, transparent)' }}
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-orange-400 animate-pulse" />
-            <span className="font-mono text-[11px] text-orange-400 tracking-[0.25em] uppercase">My Skills</span>
+            <span className="w-1.5 h-1.5 rounded-full animate-pulse" style={{ background: 'var(--color-accent)' }} />
+            <span className="font-mono text-[11px] tracking-[0.25em] uppercase" style={{ color: 'var(--color-accent-strong)' }}>My Skills</span>
           </motion.div>
 
           <motion.h2
@@ -283,14 +283,15 @@ export default function SkillsPages() {
             whileInView={{ scaleX: 1 }}
             viewport={{ once: false }}
             transition={{ delay: 0.3, duration: 0.8 }}
-            className="mx-auto w-24 h-px bg-gradient-to-r from-transparent via-orange-500/50 to-transparent"
+            className="mx-auto w-24 h-px"
+            style={{ background: 'linear-gradient(90deg, transparent, var(--color-accent), transparent)' }}
           />
         </div>
 
         {/* ═══════════════════════════
             SKILL GROUPS
         ═══════════════════════════ */}
-        <div className="space-y-16">
+        <div className="space-y-10">
           {skillGroups.map((group, gi) => (
             <motion.div
               key={group.id}
@@ -300,7 +301,7 @@ export default function SkillsPages() {
               transition={{ duration: 0.5, delay: gi * 0.05 }}
             >
               {/* Group header */}
-              <div className="flex items-center gap-4 mb-8">
+              <div className="flex items-center gap-4 mb-5">
                 {/* Accent pill */}
                 <div
                   className="flex items-center gap-3 px-4 py-2 rounded-xl border"
@@ -355,12 +356,12 @@ export default function SkillsPages() {
           viewport={{ once: false, amount: 0.2 }}
           transition={{ duration: 0.6 }}
           className="relative rounded-3xl border border-white/5 overflow-hidden"
-          style={{ background: 'linear-gradient(135deg, #0d1526 0%, #080d1a 100%)' }}
+          style={{ background: 'linear-gradient(135deg, var(--color-panel-strong) 0%, var(--color-bg-soft) 100%)' }}
         >
           {/* Top glow line */}
-          <div className="absolute top-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-orange-500/30 to-transparent" />
+          <div className="absolute top-0 left-0 right-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, var(--color-accent), transparent)' }} />
 
-          <div className="p-8 md:p-10">
+          <div className="p-6 md:p-8">
             <div className="flex items-center gap-3 mb-6">
               <span className="font-mono text-[11px] text-gray-600 tracking-[0.25em] uppercase">Also familiar with</span>
               <div className="flex-1 h-px bg-white/5" />
@@ -375,9 +376,10 @@ export default function SkillsPages() {
                   viewport={{ once: false }}
                   transition={{ delay: i * 0.06, type: 'spring', stiffness: 300 }}
                   whileHover={{ y: -4, scale: 1.05 }}
-                  className="extra-tag flex items-center gap-2 text-sm px-4 py-2 rounded-xl border border-white/8 text-gray-400 hover:text-orange-400 hover:border-orange-500/30 hover:bg-orange-500/5 cursor-default"
+                  className="extra-tag flex items-center gap-2 text-sm px-4 py-2 rounded-xl border cursor-default"
+                  style={{ borderColor: 'var(--color-border)', color: 'var(--color-muted)' }}
                 >
-                  <span className="w-1.5 h-1.5 rounded-full bg-orange-500/40" />
+                  <span className="w-1.5 h-1.5 rounded-full" style={{ background: 'var(--color-accent)' }} />
                   {tool}
                 </motion.span>
               ))}
@@ -385,8 +387,8 @@ export default function SkillsPages() {
           </div>
 
           {/* Bottom corner accents */}
-          <div className="absolute bottom-0 left-0 w-16 h-16 border-b border-l border-orange-500/10 rounded-bl-3xl" />
-          <div className="absolute bottom-0 right-0 w-16 h-16 border-b border-r border-orange-500/10 rounded-br-3xl" />
+          <div className="absolute bottom-0 left-0 w-16 h-16 border-b border-l rounded-bl-3xl" style={{ borderColor: 'var(--color-border-strong)' }} />
+          <div className="absolute bottom-0 right-0 w-16 h-16 border-b border-r rounded-br-3xl" style={{ borderColor: 'var(--color-border-strong)' }} />
         </motion.div>
 
         {/* ═══════════════════════════
@@ -400,14 +402,14 @@ export default function SkillsPages() {
           className="grid grid-cols-3 gap-4 text-center"
         >
           {[
-            { value: '12+', label: 'Technologies', color: '#f97316' },
+            { value: '12+', label: 'Technologies', color: '#d6a84f' },
             { value: '95%', label: 'Best Skill', color: '#38bdf8' },
             { value: 'L1',  label: 'Prog. Hero', color: '#a78bfa' },
           ].map((s, i) => (
             <div
               key={i}
-              className="rounded-2xl py-6 border border-white/5"
-              style={{ background: 'linear-gradient(135deg, #0d1526 0%, #080d1a 100%)' }}
+              className="rounded-xl py-4 border border-white/5"
+              style={{ background: 'linear-gradient(135deg, var(--color-panel-strong) 0%, var(--color-bg-soft) 100%)' }}
             >
               <p className="font-display text-3xl font-black" style={{ color: s.color }}>{s.value}</p>
               <p className="text-xs text-gray-500 mt-1 font-mono">{s.label}</p>
