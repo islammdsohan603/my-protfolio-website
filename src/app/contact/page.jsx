@@ -10,6 +10,7 @@ import {
   FaPaperPlane,
   FaCheck,
   FaPhone,
+  FaWhatsapp,
   FaClock,
   FaBolt,
   FaShieldHalved,
@@ -18,8 +19,9 @@ import {
 import PageBackdrop from '@/components/ui/PageBackdrop';
 
 const CONTACT_EMAIL = 'islammdsohan603@gmail.com';
-const CONTACT_PHONE = '01643223840';
-const CONTACT_PHONE_LINK = '+8801643223840';
+const CONTACT_PHONE = '01849468455';
+const CONTACT_PHONE_LINK = '+8801849468455';
+const CONTACT_WHATSAPP_LINK = 'https://wa.me/8801849468455';
 
 const contactInfo = [
   {
@@ -35,6 +37,14 @@ const contactInfo = [
     value: CONTACT_PHONE,
     href: `tel:${CONTACT_PHONE_LINK}`,
     color: '#22c55e',
+  },
+  {
+    icon: <FaWhatsapp />,
+    label: 'WhatsApp',
+    value: CONTACT_PHONE,
+    href: CONTACT_WHATSAPP_LINK,
+    external: true,
+    color: '#25d366',
   },
   {
     icon: <FaLocationDot />,
@@ -54,6 +64,11 @@ const socials = [
     icon: <FaLinkedin />,
     label: 'LinkedIn',
     href: 'https://www.linkedin.com/in/sohanislamwebdev/',
+  },
+  {
+    icon: <FaWhatsapp />,
+    label: 'WhatsApp',
+    href: CONTACT_WHATSAPP_LINK,
   },
 ];
 
@@ -125,7 +140,9 @@ export default function ContactPage() {
 
       if (response.ok) {
         setStatus('success');
-        setNotice(result.message || 'Message sent successfully. I will reply soon.');
+        setNotice(
+          result.message || 'Message sent successfully. I will reply soon.',
+        );
         setForm(initialForm);
         setTimeout(() => {
           setStatus('idle');
@@ -172,9 +189,19 @@ export default function ContactPage() {
       <div className="relative z-10 mx-auto w-11/12 max-w-6xl space-y-10">
         <div className="grid items-end gap-6 lg:grid-cols-[1fr_0.8fr]">
           <motion.div {...fadeUp(0)} className="space-y-5">
-            <div className="inline-flex items-center gap-2 rounded-full border px-4 py-2" style={{ borderColor: 'var(--color-border-strong)', background: 'color-mix(in srgb, var(--color-accent) 8%, transparent)' }}>
+            <div
+              className="inline-flex items-center gap-2 rounded-full border px-4 py-2"
+              style={{
+                borderColor: 'var(--color-border-strong)',
+                background:
+                  'color-mix(in srgb, var(--color-accent) 8%, transparent)',
+              }}
+            >
               <span className="h-2 w-2 rounded-full bg-green-400 shadow-[0_0_18px_rgba(74,222,128,0.8)]" />
-              <span className="font-mono-code text-[11px] uppercase tracking-[0.28em]" style={{ color: 'var(--color-accent-strong)' }}>
+              <span
+                className="font-mono-code text-[11px] uppercase tracking-[0.28em]"
+                style={{ color: 'var(--color-accent-strong)' }}
+              >
                 Ready for serious opportunities
               </span>
             </div>
@@ -182,20 +209,19 @@ export default function ContactPage() {
             <div className="space-y-3">
               <h2 className="font-display text-5xl font-black leading-[0.95] md:text-7xl">
                 Let&apos;s build your{' '}
-                <span className="contact-shine block sm:inline">next web win</span>
+                <span className="contact-shine block sm:inline">
+                  next web win
+                </span>
               </h2>
               <p className="max-w-2xl text-base leading-8 text-slate-400">
-                If you are hiring a junior developer, need a polished website, or want a
-                React/Next.js interface that feels premium, send the details here. The message
-                goes straight to my Gmail inbox.
+                If you are hiring a junior developer, need a polished website,
+                or want a React/Next.js interface that feels premium, send the
+                details here. The message goes straight to my Gmail inbox.
               </p>
             </div>
           </motion.div>
 
-          <motion.div
-            {...fadeUp(0.12)}
-            className="glass-panel rounded-2xl p-4"
-          >
+          <motion.div {...fadeUp(0.12)} className="glass-panel rounded-2xl p-4">
             <div className="grid grid-cols-3 gap-3 text-center">
               {[
                 { value: '24h', label: 'Reply goal' },
@@ -203,8 +229,15 @@ export default function ContactPage() {
                 { value: '100%', label: 'Focused' },
               ].map(item => (
                 <div key={item.label} className="glass-panel rounded-xl p-3">
-                  <p className="font-display text-2xl font-black" style={{ color: 'var(--color-accent-strong)' }}>{item.value}</p>
-                  <p className="font-mono-code text-[10px] text-slate-500">{item.label}</p>
+                  <p
+                    className="font-display text-2xl font-black"
+                    style={{ color: 'var(--color-accent-strong)' }}
+                  >
+                    {item.value}
+                  </p>
+                  <p className="font-mono-code text-[10px] text-slate-500">
+                    {item.label}
+                  </p>
                 </div>
               ))}
             </div>
@@ -222,7 +255,10 @@ export default function ContactPage() {
                   <div
                     key={item.label}
                     className="group rounded-xl border p-3.5 transition-all duration-300 hover:-translate-y-1"
-                    style={{ borderColor: 'var(--color-border)', background: 'var(--color-panel)' }}
+                    style={{
+                      borderColor: 'var(--color-border)',
+                      background: 'var(--color-panel)',
+                    }}
                   >
                     <div className="flex items-center gap-4">
                       <div
@@ -236,20 +272,29 @@ export default function ContactPage() {
                         {item.icon}
                       </div>
                       <div className="min-w-0 flex-1">
-                        <p className="text-xs uppercase tracking-widest text-slate-600">{item.label}</p>
+                        <p className="text-xs uppercase tracking-widest text-slate-600">
+                          {item.label}
+                        </p>
                         {item.href ? (
                           <a
                             href={item.href}
+                            target={item.external ? '_blank' : undefined}
+                            rel={item.external ? 'noopener noreferrer' : undefined}
                             className="break-all text-sm font-semibold transition-colors group-hover:text-[var(--color-accent-strong)]"
                           >
                             {item.value}
                           </a>
                         ) : (
-                          <p className="text-sm font-semibold text-[var(--color-text)]">{item.value}</p>
+                          <p className="text-sm font-semibold text-[var(--color-text)]">
+                            {item.value}
+                          </p>
                         )}
                       </div>
                       {item.href && (
-                        <FaArrowRight className="text-xs transition group-hover:translate-x-1 group-hover:text-[var(--color-accent-strong)]" style={{ color: 'var(--color-faint)' }} />
+                        <FaArrowRight
+                          className="text-xs transition group-hover:translate-x-1 group-hover:text-[var(--color-accent-strong)]"
+                          style={{ color: 'var(--color-faint)' }}
+                        />
                       )}
                     </div>
                   </div>
@@ -264,11 +309,22 @@ export default function ContactPage() {
                   {...fadeUp(0.12 + index * 0.05)}
                   className="card-premium p-4"
                 >
-                  <div className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl" style={{ background: 'color-mix(in srgb, var(--color-accent) 12%, transparent)', color: 'var(--color-accent-strong)' }}>
+                  <div
+                    className="mb-3 flex h-10 w-10 items-center justify-center rounded-xl"
+                    style={{
+                      background:
+                        'color-mix(in srgb, var(--color-accent) 12%, transparent)',
+                      color: 'var(--color-accent-strong)',
+                    }}
+                  >
                     {card.icon}
                   </div>
-                  <h3 className="font-display text-lg font-bold text-[var(--color-text)]">{card.title}</h3>
-                  <p className="mt-1 text-sm leading-6 text-slate-500">{card.text}</p>
+                  <h3 className="font-display text-lg font-bold text-[var(--color-text)]">
+                    {card.title}
+                  </h3>
+                  <p className="mt-1 text-sm leading-6 text-slate-500">
+                    {card.text}
+                  </p>
                 </motion.div>
               ))}
             </div>
@@ -285,7 +341,11 @@ export default function ContactPage() {
                     target="_blank"
                     rel="noreferrer"
                     className="inline-flex items-center gap-2 rounded-xl border px-4 py-3 text-sm font-semibold transition-all duration-300 hover:-translate-y-1 hover:text-[var(--color-accent-strong)]"
-                    style={{ borderColor: 'var(--color-border)', background: 'var(--color-panel)', color: 'var(--color-muted)' }}
+                    style={{
+                      borderColor: 'var(--color-border)',
+                      background: 'var(--color-panel)',
+                      color: 'var(--color-muted)',
+                    }}
                   >
                     {item.icon}
                     {item.label}
@@ -299,17 +359,35 @@ export default function ContactPage() {
             <form
               onSubmit={handleSubmit}
               className="relative overflow-hidden rounded-2xl border p-5 shadow-2xl md:p-6"
-              style={{ borderColor: 'var(--color-border-strong)', background: 'var(--color-panel-strong)', boxShadow: 'var(--shadow-premium)' }}
+              style={{
+                borderColor: 'var(--color-border-strong)',
+                background: 'var(--color-panel-strong)',
+                boxShadow: 'var(--shadow-premium)',
+              }}
             >
-              <div className="absolute inset-x-0 top-0 h-px" style={{ background: 'linear-gradient(90deg, transparent, var(--color-accent), transparent)' }} />
-              <div className="absolute -right-16 -top-16 h-44 w-44 rounded-full blur-3xl" style={{ background: 'var(--orb-gold)' }} />
+              <div
+                className="absolute inset-x-0 top-0 h-px"
+                style={{
+                  background:
+                    'linear-gradient(90deg, transparent, var(--color-accent), transparent)',
+                }}
+              />
+              <div
+                className="absolute -right-16 -top-16 h-44 w-44 rounded-full blur-3xl"
+                style={{ background: 'var(--orb-gold)' }}
+              />
 
               <div className="relative space-y-4">
                 <div>
-                  <p className="font-mono-code text-[11px] uppercase tracking-[0.28em]" style={{ color: 'var(--color-accent-strong)' }}>
+                  <p
+                    className="font-mono-code text-[11px] uppercase tracking-[0.28em]"
+                    style={{ color: 'var(--color-accent-strong)' }}
+                  >
                     Project inquiry
                   </p>
-                  <h3 className="mt-2 font-display text-3xl font-black text-[var(--color-text)]">Tell me what you need</h3>
+                  <h3 className="mt-2 font-display text-3xl font-black text-[var(--color-text)]">
+                    Tell me what you need
+                  </h3>
                 </div>
 
                 <input
@@ -406,16 +484,23 @@ export default function ContactPage() {
                         ? 'bg-green-500 text-white'
                         : 'text-white shadow-xl hover:-translate-y-1'
                     } disabled:cursor-not-allowed disabled:opacity-70`}
-                    style={status === 'success' ? undefined : {
-                      background: 'var(--color-accent)',
-                      boxShadow: '0 18px 40px color-mix(in srgb, var(--color-accent) 25%, transparent)',
-                    }}
+                    style={
+                      status === 'success'
+                        ? undefined
+                        : {
+                            background: 'var(--color-accent)',
+                            boxShadow:
+                              '0 18px 40px color-mix(in srgb, var(--color-accent) 25%, transparent)',
+                          }
+                    }
                   >
                     {status === 'loading' && (
                       <span className="h-4 w-4 rounded-full border-2 border-white/30 border-t-white animate-spin" />
                     )}
                     {status === 'success' && <FaCheck />}
-                    {status !== 'loading' && status !== 'success' && <FaPaperPlane className="text-sm" />}
+                    {status !== 'loading' && status !== 'success' && (
+                      <FaPaperPlane className="text-sm" />
+                    )}
                     {status === 'loading'
                       ? 'Sending...'
                       : status === 'success'
@@ -446,7 +531,8 @@ export default function ContactPage() {
                 )}
 
                 <p className="text-center text-xs leading-6 text-slate-600">
-                  Your message is validated on the server and delivered to {CONTACT_EMAIL}.
+                  Your message is validated on the server and delivered to{' '}
+                  {CONTACT_EMAIL}.
                 </p>
               </div>
             </form>
