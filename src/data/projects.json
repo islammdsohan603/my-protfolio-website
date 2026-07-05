@@ -1,6 +1,37 @@
 [
   {
-    "id": 1,
+    "id": 2,
+    "title": "RecipeHub - Recipe Sharing Platform",
+    "description": "A full-stack recipe sharing platform where users can discover, create, like, and manage recipes, while administrators can monitor content, users, and platform activities through a secure dashboard.",
+    "tech": [
+      "Next.js",
+      "React",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "Tailwind CSS",
+      "Firebase Authentication",
+      "JWT",
+      "Stripe"
+    ],
+    "github": "https://github.com/islammdsohan603/recipe_web_site_client_code",
+    "live": "https://ibb.co.com/vCRzc34g",
+    "image": "https://your-image-url.com/recipehub.png",
+    "features": [
+      "Role-based authentication for Users and Admins",
+      "Create, edit, delete, and manage personal recipes",
+      "Browse, search, and filter recipes by category",
+      "Like and add recipes to Favorites",
+      "Report inappropriate recipes to administrators",
+      "Premium membership with Stripe payment integration",
+      "Responsive User Dashboard for recipe and profile management",
+      "Admin Dashboard to manage users, recipes, reports, and premium requests",
+      "Secure JWT authentication with protected routes",
+      "Mobile-friendly responsive design"
+    ]
+  },
+  {
+    "id": 2,
     "title": "Job Portal Website",
     "description": "A full-stack job portal platform where job seekers can search and apply for jobs, while recruiters can post and manage job listings through a secure and responsive dashboard.",
     "tech": [
@@ -25,7 +56,7 @@
     ]
   },
   {
-    "id": 2,
+    "id": 3,
     "title": "Programming Courses Website",
     "description": "A modern programming course platform where users can explore coding courses, view details, and access structured learning content with a clean responsive UI.",
     "tech": ["Next.js", "React", "Tailwind CSS", "JavaScript"],
@@ -40,7 +71,7 @@
     ]
   },
   {
-    "id": 3,
+    "id": 4,
     "title": "Doctor Appointment Manager",
     "description": "A full-stack doctor appointment system where users can book appointments, manage bookings, and view doctor availability with authentication support.",
     "tech": [
@@ -62,7 +93,7 @@
     ]
   },
   {
-    "id": 4,
+    "id": 5,
     "title": "QurbaniHat – Livestock Booking Platform",
     "description": "A modern livestock marketplace where users can explore animals for Qurbani and book them after authentication. Includes filtering, booking system, and responsive UI.",
     "tech": ["Next.js", "MongoDB", "Authentication", "Tailwind CSS"],
@@ -77,7 +108,7 @@
     ]
   },
   {
-    "id": 5,
+    "id": 6,
     "title": "News Website with Next.js",
     "description": "A dynamic news platform using API-based data fetching with category filtering and detailed news pages.",
     "tech": ["Next.js", "API", "Server Components", "Tailwind CSS"],
@@ -92,7 +123,7 @@
     ]
   },
   {
-    "id": 6,
+    "id": 7,
     "title": "Next.js Projects Collection",
     "description": "A collection of multiple Next.js mini projects demonstrating routing, components, and modern React features.",
     "tech": ["Next.js", "React", "JavaScript"],
@@ -107,7 +138,7 @@
     ]
   },
   {
-    "id": 7,
+    "id": 8,
     "title": "Digital Tools Buying Website",
     "description": "An e-commerce platform for purchasing digital tools with product listings and user-friendly UI.",
     "tech": ["React", "Node.js", "MongoDB", "Express"],
@@ -123,7 +154,7 @@
   },
 
   {
-    "id": 8,
+    "id": 9,
     "title": "React Book Projects",
     "description": "A book management application where users can browse and manage book collections.",
     "tech": ["React", "API", "JavaScript"],
