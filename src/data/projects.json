@@ -1,6 +1,6 @@
 [
   {
-    "id": 2,
+    "id": 1,
     "title": "RecipeHub - Recipe Sharing Platform",
     "description": "A full-stack recipe sharing platform where users can discover, create, like, and manage recipes, while administrators can monitor content, users, and platform activities through a secure dashboard.",
     "tech": [
@@ -15,8 +15,8 @@
       "Stripe"
     ],
     "github": "https://github.com/islammdsohan603/recipe_web_site_client_code",
-    "live": "https://ibb.co.com/vCRzc34g",
-    "image": "https://your-image-url.com/recipehub.png",
+    "live": "https://recipehub-roan.vercel.app/",
+    "image": "https://i.ibb.co.com/gFJv0262/recipeprojects.png",
     "features": [
       "Role-based authentication for Users and Admins",
       "Create, edit, delete, and manage personal recipes",
@@ -105,67 +105,6 @@
       "Animal listing with details",
       "Booking system",
       "Responsive UI design"
-    ]
-  },
-  {
-    "id": 6,
-    "title": "News Website with Next.js",
-    "description": "A dynamic news platform using API-based data fetching with category filtering and detailed news pages.",
-    "tech": ["Next.js", "API", "Server Components", "Tailwind CSS"],
-    "github": "https://github.com/islammdsohan603/News-web-site-with-nextJs",
-    "live": "https://news-web-site-with-next-8fb09iy98-islammdsohan603s-projects.vercel.app/category/01",
-    "image": "https://i.ibb.co/qLsYkrtq/Screenshot-2026-05-03-220455.png",
-    "features": [
-      "Category-based news filtering",
-      "Dynamic routing",
-      "Server-side data fetching",
-      "News details page"
-    ]
-  },
-  {
-    "id": 7,
-    "title": "Next.js Projects Collection",
-    "description": "A collection of multiple Next.js mini projects demonstrating routing, components, and modern React features.",
-    "tech": ["Next.js", "React", "JavaScript"],
-    "github": "https://github.com/islammdsohan603/NEXTJS-PROJECTS",
-    "live": "https://nextjs-projects-3jjx.vercel.app/",
-    "image": "https://i.ibb.co/ZR6KmDm9/Screenshot-2026-05-03-220341.png",
-    "features": [
-      "Multiple mini projects",
-      "App Router usage",
-      "Reusable components",
-      "Modern React patterns"
-    ]
-  },
-  {
-    "id": 8,
-    "title": "Digital Tools Buying Website",
-    "description": "An e-commerce platform for purchasing digital tools with product listings and user-friendly UI.",
-    "tech": ["React", "Node.js", "MongoDB", "Express"],
-    "github": "https://github.com/islammdsohan603/-Digital-Tools-Buying-Website",
-    "live": "https://react-book-projects.vercel.app/",
-    "image": "https://i.ibb.co/chpVgMF4/Screenshot-2026-03-31-103528.png",
-    "features": [
-      "Product listing",
-      "Add to cart functionality",
-      "Responsive UI",
-      "Backend API integration"
-    ]
-  },
-
-  {
-    "id": 9,
-    "title": "React Book Projects",
-    "description": "A book management application where users can browse and manage book collections.",
-    "tech": ["React", "API", "JavaScript"],
-    "github": "https://github.com/islammdsohan603/react-book-projects",
-    "live": "https://react-book-projects.vercel.app/",
-    "image": "https://i.ibb.co/rGhHz1Wq/Screenshot-2026-05-03-221329.png",
-    "features": [
-      "Book listing",
-      "Search functionality",
-      "API integration",
-      "Responsive design"
     ]
   }
 ]
